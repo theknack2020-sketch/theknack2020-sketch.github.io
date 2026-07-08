@@ -68,7 +68,7 @@
 
   <div class="notice">
     <p class="tldr">The short version:</p>
-    <p>Selfora keeps your affirmations, favorites, streak, and settings on your device. We never see them. There is no account and no login. If iCloud sync is on, your data lives in <em>your</em> private iCloud — encrypted by Apple, which we cannot access. We collect only anonymous, non-identifying app diagnostics. We do not track you across apps or websites, and we never show ads.</p>
+    <p>Selfora keeps your affirmations, favorites, streak, and settings on your device. We never see them. There is no account and no login. Your data is included in your normal device backup (iCloud Backup or a computer backup), which Apple manages and we cannot access. We collect only anonymous, non-identifying app diagnostics. We do not track you across apps or websites, and we never show ads.</p>
   </div>
 
   <h2>1. Who we are</h2>
@@ -85,8 +85,8 @@
   </ul>
   <p>On iOS 26+ with Apple Intelligence, the optional Pro personal affirmation generator uses Apple's on-device Foundation Models framework. Generation runs entirely on your device; nothing is sent to a server.</p>
 
-  <h2>3. iCloud sync (optional, you control it)</h2>
-  <p>Selfora syncs your favorites, your own affirmations, streak, and settings through Apple's CloudKit, stored in <em>your</em> private iCloud container. Apple encrypts this container and holds the keys on your devices. We, TheKnack, have no access to that data. iCloud sync uses your existing Apple ID; we never see your Apple ID, email, or iCloud credentials. If you sign out of iCloud or disable it for Selfora, your data stays only on the device where you created it.</p>
+  <h2>3. Device backups (managed by Apple, you control them)</h2>
+  <p>Selfora does not sync your data between devices and does not use its own cloud. If you use iCloud Backup or back your device up to a computer, your Selfora data is included in that backup like any other app's data. Backups are managed and encrypted by Apple (or stored on your computer); we, TheKnack, have no access to them and never see your Apple ID, email, or iCloud credentials. Restoring a new device from your backup carries your Selfora data over; setting a device up as new starts fresh.</p>
 
   <h2>4. What we do collect (only anonymous diagnostics)</h2>
   <p>Selfora sends <strong>anonymous, non-identifying</strong> diagnostics to TelemetryDeck — a privacy-respecting analytics provider. The only data points we emit are:</p>
@@ -126,7 +126,7 @@
     <li><strong>Access</strong>: open the app — everything is there.</li>
     <li><strong>Delete content</strong>: remove favorites, your own affirmations, or collections inside the app.</li>
     <li><strong>Delete everything</strong>: delete the app, and all local data is removed with it.</li>
-    <li><strong>iCloud</strong>: if iCloud sync is on, a copy remains in your private iCloud until you disable sync and remove the Selfora data from Settings → [your name] → iCloud → Manage Account Storage.</li>
+    <li><strong>Backups</strong>: copies of your data may persist inside device backups you keep (iCloud Backup or computer backups) until those backups are deleted or rotate out; you manage them in Settings → [your name] → iCloud → iCloud Backup or on your computer.</li>
   </ul>
   <p>We retain no server-side copy of your content, because we never receive it.</p>
 
