@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Selfora — daily affirmations and positive self-talk. Private, on-device, built for iPhone and iPad. Become who you want to be.">
+<title>Selfora — Daily Affirmations</title>
+<style>
+  :root {
+    --bg: #FDF1E7; --fg: #3A2A33; --muted: #8A7480;
+    --accent: #E8896B; --card: #FFFFFF; --border: rgba(58, 42, 51, 0.12);
+    --hero-a: #FDF1E7; --hero-b: #F8C9B0; --hero-c: #E8896B;
+    --serif: "New York", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1A1020; --fg: #F6E8DE; --muted: #B4A3AE; --accent: #F0A488;
+      --card: #2A1B30; --border: rgba(246, 232, 222, 0.15);
+      --hero-a: #1A1020; --hero-b: #2A1B30; --hero-c: #4A2433;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.6;
+    margin: 0; padding: 0; -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--hero-a) 0%, var(--hero-b) 55%, var(--hero-c) 100%);
+    padding: 80px 24px 96px; text-align: center;
+  }
+  .mark { width: 96px; height: 96px; margin: 0 auto 24px; display: grid; place-items: center; }
+  .mark svg { width: 96px; height: 96px; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 2.75rem; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.02em;
+  }
+  .hero p.tagline {
+    font-family: var(--serif);
+    font-size: 1.2rem; font-style: italic; color: var(--fg); opacity: 0.85; margin: 0 0 8px;
+    max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+  .hero p.sub {
+    font-size: 1.05rem; color: var(--muted); margin: 0 0 32px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .cta {
+    display: inline-block; background: var(--accent); color: #FFFFFF;
+    padding: 14px 28px; border-radius: 999px; font-weight: 600;
+    text-decoration: none; font-size: 1rem;
+  }
+  .badge-note { display: block; margin-top: 14px; color: var(--muted); font-size: 0.8rem; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 48px; }
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem; font-weight: 700; margin: 40px 0 12px;
+    padding-bottom: 8px; border-bottom: 3px solid var(--accent); display: inline-block;
+  }
+  .feature-grid {
+    display: grid; gap: 16px; margin-top: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .feature {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 20px; border-radius: 16px;
+  }
+  .feature h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .nav-links {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);
+  }
+  .nav-links a { color: var(--fg); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--accent); }
+  footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 32px 24px 48px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="mark" aria-hidden="true">
+    <!-- Sunrise gradient disc + serif "S" letterform -->
+    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FBD9A8"/>
+          <stop offset="45%" stop-color="#F2A07C"/>
+          <stop offset="100%" stop-color="#E8896B"/>
+        </linearGradient>
+      </defs>
+      <circle cx="48" cy="48" r="44" fill="url(#sun)"/>
+      <text x="48" y="68" text-anchor="middle"
+            font-family="Georgia, 'Times New Roman', serif"
+            font-size="58" font-style="italic" font-weight="700" fill="#FFFFFF">S</text>
+    </svg>
+  </div>
+  <h1>Selfora</h1>
+  <p class="tagline">Become who you want to be.</p>
+  <p class="sub">Daily affirmations and positive self-talk — private, on-device, and made for your morning, your moments, and your wind-down.</p>
+  <a class="cta" href="#about">Learn more</a>
+  <!-- TODO once the app is live: add the App Store download badge + link here. -->
+</div>
+
+<main id="about">
+  <h2>What it is</h2>
+  <p>Selfora is a daily affirmation app for iPhone and iPad built around one idea: the words you repeat become the person you become. Swipe a calm full-screen feed of "I am" affirmations, favorite the ones that land, and build a gentle daily practice with a short breath-and-repetition session. Everything lives on your device, syncs through your own private iCloud, and never asks for an account.</p>
+
+  <h2>Features</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Daily affirmations</h3>
+      <p>A calm full-screen feed across 20 categories, from Self-Love to New Beginnings.</p>
+    </div>
+    <div class="feature">
+      <h3>Practice &amp; streak</h3>
+      <p>A 1–2 minute breath-and-repetition session. The habit engine is always free.</p>
+    </div>
+    <div class="feature">
+      <h3>Home &amp; Lock widgets</h3>
+      <p>Affirmations rotate on your Home and Lock Screen throughout the day.</p>
+    </div>
+    <div class="feature">
+      <h3>Private by design</h3>
+      <p>No account, no tracking, no ads. Your data stays on your device.</p>
+    </div>
+    <div class="feature">
+      <h3>Write your own</h3>
+      <p>Add affirmations in your own voice and see them in your feed and widgets.</p>
+    </div>
+    <div class="feature">
+      <h3>Made for iPhone &amp; iPad</h3>
+      <p>A universal app with sunrise themes, dark mode, and a full-canvas iPad layout.</p>
+    </div>
+  </div>
+
+  <h2>Made by TheKnack</h2>
+  <p>Selfora is crafted by TheKnack, a small indie studio building calm, private Apple apps. Part of a wellbeing cluster alongside Nightbook, Micro Journal, and Sleepella.</p>
+
+  <nav class="nav-links" aria-label="Legal">
+    <a href="./privacy-policy.html">Privacy Policy</a>
+    <a href="./terms.html">Terms of Use</a>
+    <a href="./support.html">Support</a>
+  </nav>
+</main>
+
+<footer>© 2026 TheKnack</footer>
+</body>
+</html>
