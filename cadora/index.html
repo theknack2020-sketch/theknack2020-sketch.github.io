@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cadora — a calm, giver-first gift planner. Track the people you give to, their occasions, and your gift ideas, all year round. Private, on-device, built for iPhone and iPad.">
+<title>Cadora — The Calm Gift Planner</title>
+<style>
+  :root {
+    --bg: #FBF6F0; --fg: #2A2320; --muted: #746A60;
+    --accent: #9E3B1C; --rule: #D9744F; --card: #FFFFFF; --border: rgba(42, 35, 32, 0.12);
+    --hero-a: #FBF6F0; --hero-b: #F0D3C2; --hero-c: #D9744F;
+    --serif: "New York", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15120F; --fg: #F4EEE7; --muted: #A79C90; --accent: #E8895F; --rule: #E8895F;
+      --card: #211D19; --border: rgba(244, 238, 231, 0.15);
+      --hero-a: #15120F; --hero-b: #211D19; --hero-c: #4A3226;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.6;
+    margin: 0; padding: 0; -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--hero-a) 0%, var(--hero-b) 55%, var(--hero-c) 100%);
+    padding: 80px 24px 96px; text-align: center;
+  }
+  .mark { width: 96px; height: 96px; margin: 0 auto 24px; display: grid; place-items: center; }
+  .mark svg { width: 96px; height: 96px; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 2.75rem; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.02em;
+  }
+  .hero p.tagline {
+    font-family: var(--serif);
+    font-size: 1.2rem; font-style: italic; color: var(--fg); opacity: 0.85; margin: 0 0 8px;
+    max-width: 540px; margin-left: auto; margin-right: auto;
+  }
+  .hero p.sub {
+    font-size: 1.05rem; color: var(--muted); margin: 0 0 32px;
+    max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+  .cta {
+    display: inline-block; background: var(--rule); color: #FFFFFF;
+    padding: 14px 28px; border-radius: 999px; font-weight: 600;
+    text-decoration: none; font-size: 1rem;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 48px; }
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem; font-weight: 700; margin: 40px 0 12px;
+    padding-bottom: 8px; border-bottom: 3px solid var(--rule); display: inline-block;
+  }
+  .feature-grid {
+    display: grid; gap: 16px; margin-top: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .feature {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 20px; border-radius: 16px;
+  }
+  .feature h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .nav-links {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);
+  }
+  .nav-links a { color: var(--fg); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--accent); }
+  footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 32px 24px 48px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="mark" aria-hidden="true">
+    <!-- Terracotta disc + gift-knot ribbon mark -->
+    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#F0B48F"/>
+          <stop offset="50%" stop-color="#E08A5F"/>
+          <stop offset="100%" stop-color="#C25A38"/>
+        </linearGradient>
+      </defs>
+      <circle cx="48" cy="48" r="44" fill="url(#clay)"/>
+      <!-- ribbon bow: two loops + knot, drawn in cream -->
+      <g fill="none" stroke="#FBF6F0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M48 48 C30 30, 22 44, 32 52 C40 58, 48 48, 48 48 Z"/>
+        <path d="M48 48 C66 30, 74 44, 64 52 C56 58, 48 48, 48 48 Z"/>
+        <path d="M48 48 L44 70 M48 48 L54 70"/>
+      </g>
+      <circle cx="48" cy="48" r="4.5" fill="#FBF6F0"/>
+    </svg>
+  </div>
+  <h1>Cadora</h1>
+  <p class="tagline">Never forget a gift again.</p>
+  <p class="sub">A calm, giver-first gift planner for the people who matter — their occasions, your ideas, and your budget, all year round.</p>
+  <a class="cta" href="#about">Learn more</a>
+  <!-- TODO once the app is live: add the App Store download badge + link here. -->
+</div>
+
+<main id="about">
+  <h2>What it is</h2>
+  <p>Cadora is a gift planner for iPhone and iPad built around one idea: thoughtful gifting is remembering. Keep a page for each person you give to, track their birthdays and anniversaries, jot gift ideas as they come to you, follow each idea from thought to given, and set a budget — so the right gift is ready before the date arrives. It's giver-first and evergreen: not a wishlist, not a Christmas-only app. Everything lives on your device and, if you choose, syncs privately through your own iCloud.</p>
+
+  <h2>Features</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>People you give to</h3>
+      <p>A calm page per person — relationship, interests, sizes, notes, and their gift history.</p>
+    </div>
+    <div class="feature">
+      <h3>Occasions, all year</h3>
+      <p>Birthdays, anniversaries, and recurring dates, with a clear countdown to what's next.</p>
+    </div>
+    <div class="feature">
+      <h3>Gift ideas &amp; status</h3>
+      <p>Capture ideas anytime and follow each one from idea to ordered, wrapped, and given.</p>
+    </div>
+    <div class="feature">
+      <h3>Budget &amp; history</h3>
+      <p>Track spend per person and per year, and never accidentally repeat a gift.</p>
+    </div>
+    <div class="feature">
+      <h3>Private by design</h3>
+      <p>No account with us, no tracking, no ads. Your data stays on device and in your own iCloud.</p>
+    </div>
+    <div class="feature">
+      <h3>Made for iPhone &amp; iPad</h3>
+      <p>A warm, editorial design with dark mode, optional Face ID lock, and gentle reminders.</p>
+    </div>
+  </div>
+
+  <h2>Made by TheKnack</h2>
+  <p>Cadora is crafted by TheKnack, a small indie studio building calm, private Apple apps.</p>
+
+  <nav class="nav-links" aria-label="Legal">
+    <a href="./privacy-policy.html">Privacy Policy</a>
+    <a href="./terms-of-use.html">Terms of Use</a>
+    <a href="./support.html">Support</a>
+  </nav>
+</main>
+
+<footer>© 2026 TheKnack</footer>
+</body>
+</html>
