@@ -91,15 +91,14 @@
   <p>If you enable iCloud, Cadora keeps your data in sync across your own Apple devices using Apple's CloudKit <strong>private database</strong> — the private area of <em>your</em> iCloud account. This is the same mechanism Apple's own apps use. Your data is stored and encrypted in your personal iCloud, tied to your Apple ID; it is not shared with other users and is not sent to any TheKnack server. We have no access to your iCloud account, your Apple ID, your credentials, or the contents of your private database, and we never see your people, occasions, or gift plans.</p>
   <p>iCloud sync is governed by Apple's <a href="https://www.apple.com/legal/privacy/" rel="noopener">Privacy Policy</a> and <a href="https://www.apple.com/legal/internet-services/icloud/" rel="noopener">iCloud Terms</a>. You control it in iPhone Settings → [your name] → iCloud. If you turn iCloud off, Cadora keeps your data on-device only.</p>
 
-  <h2>4. What we do collect (only anonymous diagnostics)</h2>
-  <p>Cadora sends <strong>anonymous, non-identifying</strong> diagnostics to TelemetryDeck — a privacy-respecting analytics provider. The only data points we emit are:</p>
+  <h2>4. What we do collect (only anonymous analytics)</h2>
+  <p>Cadora sends <strong>anonymous, non-identifying</strong> analytics to TelemetryDeck — a privacy-respecting analytics provider. The only data points we emit are:</p>
   <ul>
     <li><strong>Product interaction</strong> — anonymous events such as "app opened", "screen viewed", "paywall shown", "purchase completed" (just that it happened, never the content)</li>
-    <li><strong>Crash data</strong> — stack traces that help us fix bugs</li>
-    <li><strong>Performance data</strong> — launch time and memory footprint</li>
+    <li><strong>An anonymous device identifier</strong> — a one-way salted hash generated on your device, so the same device's events can be counted once; it cannot be reversed into who you are and is never combined with data from other apps</li>
   </ul>
-  <p>None of this data includes the names of your people, your occasions, your gift ideas, your photos, your budgets, your Apple ID, your email, or any way to identify you personally. TelemetryDeck receives anonymized signals only and is not used to build a profile of you, and we do not track you across other apps or websites (our privacy manifest sets tracking to false). Read their privacy stance: <a href="https://telemetrydeck.com/privacy/" rel="noopener">telemetrydeck.com/privacy</a>.</p>
-  <p>These three data types — Crash Data, Performance Data, and Product Interaction — are exactly what Cadora declares in its App Store privacy manifest. All three are <em>not linked</em> to your identity and are <em>not used for tracking</em>.</p>
+  <p>We do not collect crash logs or performance traces through TelemetryDeck. None of this data includes the names of your people, your occasions, your gift ideas, your photos, your budgets, your Apple ID, your email, or any way to identify you personally. TelemetryDeck receives anonymized signals only and is not used to build a profile of you, and we do not track you across other apps or websites (our privacy manifest sets tracking to false). Read their privacy stance: <a href="https://telemetrydeck.com/privacy/" rel="noopener">telemetrydeck.com/privacy</a>.</p>
+  <p>These two data types — Product Interaction and a hashed Device Identifier — are exactly what Cadora declares in its App Store privacy label. Both are <em>not linked</em> to your identity and are <em>not used for tracking</em>.</p>
 
   <h2>5. What we do not do</h2>
   <ul>
