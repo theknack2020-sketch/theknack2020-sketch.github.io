@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pressora Privacy Policy — your symptom check-ins and pressure readings stay on your device. No account, no health data in iCloud, no tracking, no ads.">
+<title>Privacy Policy — Pressora</title>
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --fg: #1B1E27;
+    --muted: #6B7080;
+    --accent: #3E5BD7;
+    --rule: #3E5BD7;
+    --card: #FFFFFF;
+    --border: rgba(27, 30, 39, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0E1A;
+      --fg: #ECEEF6;
+      --muted: #9AA0B4;
+      --accent: #7E93FF;
+      --rule: #7E93FF;
+      --card: #161A29;
+      --border: rgba(236, 238, 246, 0.15);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 24px 20px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: "New York", Georgia, "Times New Roman", serif;
+    font-size: 2rem; font-weight: 700; margin: 24px 0 8px;
+    padding-bottom: 12px; border-bottom: 3px solid var(--rule); display: inline-block;
+  }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 8px; }
+  p, li { font-size: 1rem; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { opacity: 0.8; }
+  .effective { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .notice {
+    background: var(--card); border: 1px solid var(--border);
+    border-left: 3px solid var(--rule); padding: 14px 16px;
+    border-radius: 8px; margin: 20px 0;
+  }
+  .contact {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 16px 20px; border-radius: 12px; margin-top: 32px;
+  }
+  .tldr { font-weight: 600; font-size: 1.05rem; }
+  footer { color: var(--muted); font-size: 0.85rem; margin-top: 48px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="effective">Effective: July 10, 2026 · Last updated: July 10, 2026</p>
+
+  <div class="notice">
+    <p class="tldr">The short version:</p>
+    <p>Your health stays on your device. Everything you log in Pressora — how you feel, your symptom check-ins, your pressure readings, and the patterns Pressora shows you — is stored only on your iPhone using Apple's SwiftData, with iCloud sync deliberately turned off. There is no account and no login. We never receive any of it. Pressora has <strong>no analytics and no tracking of any kind</strong> — nothing about you or how you use the app ever leaves your device. We never show ads.</p>
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>Pressora ("the app", "we", "us") is developed and distributed by TheKnack. Questions or concerns: <a href="mailto:theknack2020@gmail.com">theknack2020@gmail.com</a>.</p>
+
+  <h2>2. Your health data stays on your device</h2>
+  <p>Pressora is a wellness journal. Everything you record and everything it derives is stored locally on your iPhone using Apple's SwiftData, and it is kept there <strong>only</strong>:</p>
+  <ul>
+    <li>Your symptom check-ins — the type you tap (such as headache, joint pain, sinus pressure, fatigue, dizziness, or mood), a severity level, and any optional note</li>
+    <li>Barometric pressure readings sampled from your iPhone's built-in barometer while the app is open</li>
+    <li>The personal patterns and correlations Pressora calculates between the pressure and how you feel</li>
+    <li>Your preferences — units, alert threshold, and permission choices</li>
+  </ul>
+  <p><strong>We do not upload, mirror, sync, or read any of this.</strong> There is no Pressora server, and none of your health or symptom information is ever sent to us. Because it is health-adjacent personal data, we deliberately keep it out of iCloud: Pressora's database has CloudKit sync switched off (App Store Review Guideline 5.1.3(ii)). If you want a copy of your data, you export it yourself as a CSV file (see section 5).</p>
+
+  <h2>3. Weather forecasts and your location</h2>
+  <p>To show the 48-hour pressure forecast for your area, Pressora uses Apple's <strong>WeatherKit</strong>. When you allow location access, Pressora requests your <em>approximate</em> location only (reduced accuracy, "While Using the App") and passes those coordinates to Apple's Weather service to fetch the forecast for your region. Precise location is never required.</p>
+  <ul>
+    <li>Your location is used at the moment of the request and is <strong>not stored</strong> by Pressora or sent to any TheKnack server.</li>
+    <li>Sending coordinates to Apple Weather is handled by Apple. Apple's use of that data is governed by Apple's <a href="https://www.apple.com/legal/privacy/" rel="noopener">Privacy Policy</a> and the <a href="https://developer.apple.com/weatherkit/data-source-attribution/" rel="noopener">Apple Weather / WeatherKit</a> terms. Weather data is provided by Apple Weather.</li>
+    <li>You can decline or revoke location access anytime in iPhone Settings → Pressora → Location. Without it, Pressora still works using your device's own barometer where available.</li>
+  </ul>
+
+  <h2>4. The barometer and Motion &amp; Fitness</h2>
+  <p>On supported iPhones, Pressora reads live air pressure from the device's built-in barometer through Apple's Core Motion framework, which is why it asks for Motion &amp; Fitness access. These pressure readings are processed and stored <strong>on your device only</strong>. They are never sent to us, never sent to analytics, and never leave your phone except when you choose to export them yourself.</p>
+
+  <h2>5. Exporting your data</h2>
+  <p>Pressora lets you export your symptom and pressure history as a CSV file, and to generate a summary report, entirely at your own request. Export uses Apple's standard share sheet: <strong>you</strong> choose where the file goes (save it, email it, AirDrop it). The file is created on your device and is never routed through us.</p>
+
+  <h2>6. Analytics: none</h2>
+  <p>Pressora contains <strong>no analytics or telemetry of any kind</strong>. There is no third-party analytics SDK, no usage tracking, and no device identifier collection — not even an anonymous "app opened" counter ever leaves your phone.</p>
+  <p>This is why Pressora's App Store privacy label reads <strong>"Data Not Collected"</strong>: the app genuinely collects nothing about you or your use of it. Any sense of how the app is doing comes only from Apple's own aggregate App Store Connect sales figures, which never reach into your device.</p>
+
+  <h2>7. Notifications</h2>
+  <p>Pressora can give you a heads-up before pressure is forecast to drop. These notifications are scheduled <strong>locally on your device</strong> from the forecast Pressora already fetched — there is no push server, and no silent background push. The details never leave your device. You choose whether to enable them, and you can change or disable them anytime in iPhone Settings → Pressora → Notifications, or inside Pressora.</p>
+
+  <h2>8. What we do not do</h2>
+  <ul>
+    <li>We do not require an account, sign-up, or login.</li>
+    <li>We do not store your symptoms, pressure data, or location on any server — there is no Pressora server.</li>
+    <li>We do not put your health data in iCloud.</li>
+    <li>We do not track you across apps or websites.</li>
+    <li>We do not sell or share your data with third parties for marketing.</li>
+    <li>We do not use advertising identifiers, and we never show ads.</li>
+    <li>We do not show the App Tracking Transparency prompt — there is nothing to track.</li>
+    <li>We do not integrate any third-party analytics, advertising, or tracking SDKs — only Apple's own frameworks (SwiftData, WeatherKit, Core Motion, StoreKit).</li>
+  </ul>
+
+  <h2>9. App Store purchases</h2>
+  <p>If you purchase Pressora Pro (monthly, yearly, or a lifetime unlock), Apple processes the transaction. We receive from Apple a receipt confirming your entitlement status; we do not receive your payment information. Apple's privacy policy governs payment data: <a href="https://www.apple.com/legal/privacy/" rel="noopener">apple.com/legal/privacy</a>.</p>
+
+  <h2>10. Children</h2>
+  <p>Pressora is not directed to children. It does not knowingly collect personal data from anyone, including children under 13 (or the equivalent minimum age in your region), and we do not direct any data collection or advertising at children. If you believe a child has provided us data, contact us and we will address it. This is consistent with the U.S. Children's Online Privacy Protection Act (COPPA).</p>
+
+  <h2>11. Data retention and deletion</h2>
+  <p>Because your content lives on your device, you control it directly:</p>
+  <ul>
+    <li><strong>Access</strong>: open the app — everything is there.</li>
+    <li><strong>Edit or delete content</strong>: remove any check-in inside the app.</li>
+    <li><strong>Delete everything</strong>: deleting the app removes all of its local data from your device. Since Pressora keeps nothing in iCloud and nothing on a server, that is the end of it.</li>
+    <li><strong>Backups</strong>: copies may persist inside encrypted device or iCloud <em>device backups</em> you keep, which are managed by Apple, until those backups are deleted or rotate out.</li>
+  </ul>
+  <p>We retain no server-side copy of your content, because we never receive it.</p>
+
+  <h2>12. Your rights (GDPR / CCPA and other regions)</h2>
+  <p>Because we hold no personal data about you on any server, most data-subject requests resolve on your own device:</p>
+  <ul>
+    <li>Pressora collects nothing about you, so there is no personal data held by us to access, correct, or erase.</li>
+    <li>We do not "sell" or "share" personal information as those terms are defined under the CCPA/CPRA. No "Do Not Sell or Share" action is needed, because there is nothing to sell or share.</li>
+    <li>EU/EEA and UK residents retain all rights under the GDPR/UK GDPR, including access, rectification, erasure, and the right to lodge a complaint with a supervisory authority. California residents retain all rights under the CCPA/CPRA.</li>
+    <li>To exercise any right, or if you have questions, email <a href="mailto:theknack2020@gmail.com">theknack2020@gmail.com</a>.</li>
+  </ul>
+
+  <h2>13. Changes to this policy</h2>
+  <p>If we ever change how Pressora handles data, this page will update with a new effective date. Substantive changes will also be surfaced in-app on your next launch.</p>
+
+  <h2>14. Governing law</h2>
+  <p>This policy and the operation of Pressora are governed by the laws of the Republic of Turkey. Where European Union consumer protections (including the GDPR) provide stronger rights, those rights apply to EU residents.</p>
+
+  <div class="contact">
+    <p><strong>Contact:</strong> <a href="mailto:theknack2020@gmail.com">theknack2020@gmail.com</a></p>
+    <p><strong>Developer:</strong> TheKnack</p>
+  </div>
+
+  <footer>© 2026 TheKnack · <a href="./index.html">Pressora</a> · <a href="./terms">Terms</a> · <a href="./support">Support</a></footer>
+</main>
+</body>
+</html>

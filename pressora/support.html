@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pressora support — how the barometer and forecast work, what happens with no sensor, alerts, exporting your data, and Pro.">
+<title>Support — Pressora</title>
+<style>
+  :root {
+    --bg: #F7F5F0; --fg: #1B1E27; --muted: #6B7080; --accent: #3E5BD7; --rule: #3E5BD7;
+    --card: #FFFFFF; --border: rgba(27, 30, 39, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0E1A; --fg: #ECEEF6; --muted: #9AA0B4; --accent: #7E93FF; --rule: #7E93FF;
+      --card: #161A29; --border: rgba(236, 238, 246, 0.15);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.6;
+    margin: 0; padding: 24px 20px 64px; -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: "New York", Georgia, "Times New Roman", serif;
+    font-size: 2rem; font-weight: 700; margin: 24px 0 8px;
+    padding-bottom: 12px; border-bottom: 3px solid var(--rule); display: inline-block;
+  }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 8px; }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 20px 0 6px; }
+  p, li { font-size: 1rem; }
+  ul, ol { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { opacity: 0.8; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 16px 20px; border-radius: 12px; margin: 16px 0;
+  }
+  .contact {
+    background: var(--card); border: 1px solid var(--border);
+    border-left: 3px solid var(--rule); padding: 16px 20px;
+    border-radius: 12px; margin-top: 32px;
+  }
+  .disclaimer { color: var(--muted); font-size: 0.9rem; margin: 24px 0; }
+  footer { color: var(--muted); font-size: 0.85rem; margin-top: 48px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Support</h1>
+  <p>Pressora is the pressure radar for weather-sensitive people — it shows the drop coming, lets you log how you feel in seconds, and keeps everything on your phone. Here are the answers to the things people ask most. If yours isn't here, email us — we read everything.</p>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="card">
+    <h3>Where does the pressure reading come from?</h3>
+    <p>Two places. When the app is open on a supported iPhone, Pressora reads live air pressure from your phone's built-in barometer — that's the hyper-local number, right where you are. Alongside it, Pressora fetches the next 48 hours of forecast pressure from Apple Weather so you can see where things are heading. The live sensor value and the forecast curve sit on the same screen.</p>
+  </div>
+
+  <div class="card">
+    <h3>My phone says the sensor isn't available — what happened?</h3>
+    <p>The live barometer needs a real device with the sensor and Motion &amp; Fitness access turned on. It won't read on the iOS Simulator, on some older or unsupported hardware, or if Motion access is denied. When that happens, Pressora falls back to the forecast for your area so you still see the pressure trend, and it shows a clear "using nearby forecast" state instead of a live number. You can grant Motion access anytime in iPhone Settings → Pressora → Motion &amp; Fitness.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do the check-ins work?</h3>
+    <p>Tap the check-in button, pick how you feel (headache, joints, sinuses, fatigue, dizziness, mood, or other), set a severity, and optionally add a note. No typing is required and there's no account — a check-in takes about ten seconds. Over time, Pressora shows you how your check-ins line up with the pressure.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do the alerts work? Do they run in the background?</h3>
+    <p>Pressora gives you a heads-up before pressure is forecast to drop. Here's the honest part: iPhone apps can't read the barometer continuously in the background, so Pressora doesn't pretend to. Instead, each time you open the app (and during opportunistic background refreshes), it looks at the forecast and schedules local notifications for the drops it sees ahead — right on your device, with no server involved. Opening the app every day or two keeps your alerts fresh. Enable notifications when Pressora asks, or later in iPhone Settings → Pressora → Notifications.</p>
+  </div>
+
+  <div class="card">
+    <h3>Does Pressora send my symptoms or health data anywhere?</h3>
+    <p>No. Your symptom check-ins, pressure readings, and the patterns Pressora calculates stay on your device using Apple's SwiftData, with iCloud sync turned off. Nothing is sent to a TheKnack server — there isn't one — and none of it ever goes to analytics. See the <a href="./privacy">Privacy Policy</a> for the full picture.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I export my data?</h3>
+    <p>Open Settings inside Pressora and use the export option to create a CSV file of your history. It uses the standard iOS share sheet, so you decide where it goes — save it to Files, email it, or AirDrop it. Export is free and always available; your raw data is never held hostage behind Pro.</p>
+  </div>
+
+  <div class="card">
+    <h3>What does Pressora Pro unlock?</h3>
+    <p>The free version is fully usable forever — live sensor pressure, unlimited symptom check-ins, a taste-of storm alert, the widget, your last 7 days of history, and CSV export. Pressora Pro adds personalized 48-hour drop alerts (your own threshold), the correlation insights engine, history beyond 7 days with trend reports, and an exportable summary report. Pro is available monthly, yearly (with a 7-day free trial), or as a one-time lifetime unlock.</p>
+  </div>
+
+  <div class="card">
+    <h3>How much does Pressora Pro cost?</h3>
+    <p>Monthly is US$4.99. Yearly is US$29.99 with a 7-day free trial, then it auto-renews yearly until you cancel. Lifetime is a US$59.99 one-time purchase with no subscription and no renewal. Your local price is shown in the app before you buy.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I cancel my subscription?</h3>
+    <p>Subscriptions are managed by Apple, not by us. Open iPhone Settings → [your name] → Subscriptions → Pressora → Cancel Subscription. You keep Pro until the end of the current billing period. To avoid being charged after the free trial, cancel at least 24 hours before it ends.</p>
+  </div>
+
+  <div class="card">
+    <h3>I bought Pro but it isn't showing / I'm on a new device</h3>
+    <p>Open the paywall and tap <strong>Restore Purchases</strong>. Make sure you're signed in to the same Apple ID you used to buy. Restore re-applies your subscription or lifetime unlock from Apple's records.</p>
+  </div>
+
+  <div class="card">
+    <h3>Can I get a refund?</h3>
+    <p>Apple handles refunds. Visit <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a> and select the Pressora purchase. If Apple declines, email us and we'll see what we can do.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why does Pressora ask for my location?</h3>
+    <p>Only to fetch the pressure forecast for your area from Apple Weather. Pressora asks for <em>approximate</em> location while you're using the app; precise location is never required, and your location is not stored or sent to us. You can turn it off in iPhone Settings → Pressora → Location and still use the live barometer.</p>
+  </div>
+
+  <p class="disclaimer">Pressora is a wellness tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional.</p>
+
+  <div class="contact">
+    <h3>Still need help?</h3>
+    <p><a href="mailto:theknack2020@gmail.com?subject=Pressora%20support">theknack2020@gmail.com</a></p>
+    <p>We aim to reply within 2 business days. Please include your iPhone model, iOS version, and a description of what you saw.</p>
+  </div>
+
+  <footer>© 2026 TheKnack · <a href="./index.html">Pressora</a> · <a href="./privacy">Privacy</a> · <a href="./terms">Terms</a></footer>
+</main>
+</body>
+</html>
