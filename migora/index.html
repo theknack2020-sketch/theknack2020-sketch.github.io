@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Migora — a calm, private migraine tracker for iPhone and iPad. Log an attack in seconds, see how barometric pressure lines up with your history, and bring a clear report to your doctor. No account, on-device, health data never sold.">
+<title>Migora — Track Your Migraine Patterns</title>
+<style>
+  :root {
+    --bg: #FAF6FA; --fg: #241F29; --muted: #6F6577;
+    --accent: #9B2D6F; --rule: #C24C97; --card: #FFFFFF; --border: rgba(36, 31, 41, 0.12);
+    --hero-a: #FAF6FA; --hero-b: #EBCFE4; --hero-c: #C24C97;
+    --serif: "New York", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141019; --fg: #F2ECF4; --muted: #A99FB2; --accent: #E183C0; --rule: #E183C0;
+      --card: #201A28; --border: rgba(242, 236, 244, 0.15);
+      --hero-a: #141019; --hero-b: #201A28; --hero-c: #46264A;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.6;
+    margin: 0; padding: 0; -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--hero-a) 0%, var(--hero-b) 55%, var(--hero-c) 100%);
+    padding: 80px 24px 96px; text-align: center;
+  }
+  .mark { width: 96px; height: 96px; margin: 0 auto 24px; display: grid; place-items: center; }
+  .mark svg { width: 96px; height: 96px; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 2.75rem; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.02em;
+  }
+  .hero p.tagline {
+    font-family: var(--serif);
+    font-size: 1.2rem; font-style: italic; color: var(--fg); opacity: 0.85; margin: 0 0 8px;
+    max-width: 540px; margin-left: auto; margin-right: auto;
+  }
+  .hero p.sub {
+    font-size: 1.05rem; color: var(--muted); margin: 0 0 32px;
+    max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+  .cta {
+    display: inline-block; background: var(--rule); color: #FFFFFF;
+    padding: 14px 28px; border-radius: 999px; font-weight: 600;
+    text-decoration: none; font-size: 1rem;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 48px; }
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem; font-weight: 700; margin: 40px 0 12px;
+    padding-bottom: 8px; border-bottom: 3px solid var(--rule); display: inline-block;
+  }
+  .feature-grid {
+    display: grid; gap: 16px; margin-top: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .feature {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 20px; border-radius: 16px;
+  }
+  .feature h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .disclaimer {
+    background: var(--card); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent); padding: 14px 16px;
+    border-radius: 8px; margin: 32px 0 0; color: var(--muted); font-size: 0.95rem;
+  }
+  .nav-links {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);
+  }
+  .nav-links a { color: var(--fg); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--accent); }
+  footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 32px 24px 48px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="mark" aria-hidden="true">
+    <!-- Violet disc + barometric arc + steady point mark -->
+    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#D98FC7"/>
+          <stop offset="50%" stop-color="#C24C97"/>
+          <stop offset="100%" stop-color="#8A2C6B"/>
+        </linearGradient>
+      </defs>
+      <circle cx="48" cy="48" r="44" fill="url(#violet)"/>
+      <!-- barometric curve: a falling-then-steadying line, drawn in soft cream -->
+      <g fill="none" stroke="#FAF6FA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 40 C32 40, 36 62, 50 62 C62 62, 66 48, 76 48"/>
+      </g>
+      <circle cx="76" cy="48" r="5" fill="#FAF6FA"/>
+    </svg>
+  </div>
+  <h1>Migora</h1>
+  <p class="tagline">Understand your migraines, one honest log at a time.</p>
+  <p class="sub">A calm, private migraine tracker for iPhone and iPad. Log an attack in seconds, see how the pressure lines up with your history, and bring a clear report to your doctor.</p>
+  <a class="cta" href="#about">Learn more</a>
+  <!-- TODO once the app is live: add the App Store download badge + link here. -->
+</div>
+
+<main id="about">
+  <h2>What it is</h2>
+  <p>Migora is a migraine journal built around three moments: the seconds when an attack starts, the days when you want to understand why, and the appointment where you finally have the full picture. Log an attack in under ten seconds with Attack Mode — true-black, large targets, zero typing. Watch how your recorded attacks line up with local barometric pressure. Track sleep, triggers, medications, and daily check-ins. And when you see your clinician, generate a clean report from everything you've logged. No account, everything on your device, and your health data is yours alone.</p>
+
+  <h2>Features</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Attack Mode</h3>
+      <p>Log an attack in seconds — large targets, no typing, easy on light-sensitive eyes.</p>
+    </div>
+    <div class="feature">
+      <h3>Pressure &amp; patterns</h3>
+      <p>See how your attacks line up with local barometric pressure and your own triggers.</p>
+    </div>
+    <div class="feature">
+      <h3>Daily check-ins</h3>
+      <p>A ten-second note on sleep, stress, hydration, and mood — the context behind the pattern.</p>
+    </div>
+    <div class="feature">
+      <h3>Doctor report</h3>
+      <p>Generate a clear PDF — heat map, frequency, medication-use days, and MIDAS trend.</p>
+    </div>
+    <div class="feature">
+      <h3>Private by design</h3>
+      <p>No account, no tracking, no ads. Your health data stays on your device.</p>
+    </div>
+    <div class="feature">
+      <h3>Apple-native</h3>
+      <p>Widgets, Live Activity, Siri, dark mode, and gentle, pressure-free reminders.</p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    Migora is a tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional.
+  </div>
+
+  <h2>Made by TheKnack</h2>
+  <p>Migora is crafted by TheKnack, a small indie studio building calm, private Apple apps.</p>
+
+  <nav class="nav-links" aria-label="Legal">
+    <a href="./privacy-policy.html">Privacy Policy</a>
+    <a href="./terms-of-use.html">Terms of Use</a>
+    <a href="./support.html">Support</a>
+  </nav>
+</main>
+
+<footer>© 2026 TheKnack</footer>
+</body>
+</html>
