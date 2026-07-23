@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Flockora — the premium backyard chicken tracker. Every egg counted, every hen known, every dollar honest.">
+<title>Flockora — Chicken & Egg Tracker</title>
+<style>
+  :root { --bg: #F6F1E5; --fg: #292217; --muted: #75695A; --accent: #C89020; --gold: #E9AE2E; --card: #FCF8EE; --border: rgba(41, 34, 23, 0.12); }
+  @media (prefers-color-scheme: dark) { :root { --bg: #000; --fg: #F3EAD7; --muted: #A2957D; --accent: #F6BE3A; --gold: #F6BE3A; --card: #16120B; --border: rgba(243, 234, 215, 0.15); } }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; margin: 0; padding: 48px 20px 64px; text-align: center; }
+  main { max-width: 620px; margin: 0 auto; }
+  .drum { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 24px; background: radial-gradient(circle at 35% 30%, #E4C37B, #96742F); display: flex; align-items: center; justify-content: center; }
+  .drum span { width: 84px; height: 84px; border-radius: 50%; background: #171106; color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: "New York", Georgia, serif; font-size: 40px; font-weight: 700; }
+  h1 { font-family: "New York", Georgia, "Times New Roman", serif; font-size: 2.4rem; margin: 8px 0; }
+  .tag { color: var(--muted); font-size: 1.15rem; margin-bottom: 32px; }
+  .features { text-align: left; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin: 24px 0; }
+  .features li { margin-bottom: 8px; }
+  a.btn { display: inline-block; background: var(--gold); color: #292217; text-decoration: none; font-weight: 600; padding: 12px 28px; border-radius: 999px; margin-top: 8px; }
+  nav { margin-top: 36px; }
+  nav a { color: var(--accent); text-decoration: underline; margin: 0 8px; }
+  footer { color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="drum"><span>4</span></div>
+  <h1>Flockora</h1>
+  <p class="tag">Every egg, counted. Every hen, known. Every dollar, honest.</p>
+
+  <div class="features">
+    <ul>
+      <li>One-handed egg logging with a brass tally drum and Home Screen widgets</li>
+      <li>Flock &amp; hen profiles, health records, and a dignified memorial for hens that pass</li>
+      <li><strong>Egg Economics</strong> — what your eggs really cost, and when you break even</li>
+      <li><strong>Hatch Day</strong> — a 21-day incubation companion, live on your Lock Screen</li>
+      <li>Feed &amp; cost ledger with a days-of-feed-left gauge</li>
+    </ul>
+  </div>
+
+  <p class="tag" style="font-size:1rem;">Your flock stays on your device. No account, no tracking, no ads.</p>
+
+  <nav>
+    <a href="./privacy-policy.html">Privacy</a> ·
+    <a href="./terms-of-use.html">Terms</a> ·
+    <a href="./support.html">Support</a>
+  </nav>
+  <footer>© 2026 TheKnack</footer>
+</main>
+</body>
+</html>
