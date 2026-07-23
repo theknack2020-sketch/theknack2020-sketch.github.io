@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shrinkora Privacy Policy — your videos never leave your device. No account, no tracking, no ads, no network.">
+<title>Privacy Policy — Shrinkora</title>
+<style>
+  :root {
+    --bg: #F6F1E6;
+    --fg: #211C15;
+    --muted: #6E655A;
+    --accent: #B23A26;
+    --card: #FCF8EF;
+    --border: rgba(41, 34, 23, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17140F;
+      --fg: #F0E8D9;
+      --muted: #A89D89;
+      --accent: #E8542F;
+      --card: #141210;
+      --border: rgba(243, 234, 215, 0.15);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.6; margin: 0;
+    padding: 24px 20px 64px; -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: "New York", Georgia, "Times New Roman", serif;
+    font-size: 2rem; font-weight: 700; margin: 24px 0 8px;
+    padding-bottom: 12px; border-bottom: 3px solid var(--accent); display: inline-block;
+  }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 8px; }
+  p, li { font-size: 1rem; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { opacity: 0.8; }
+  .effective { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .notice { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 14px 16px; border-radius: 8px; margin: 20px 0; }
+  .contact { background: var(--card); border: 1px solid var(--border); padding: 16px 20px; border-radius: 12px; margin-top: 32px; }
+  .tldr { font-weight: 600; font-size: 1.05rem; }
+  footer { color: var(--muted); font-size: 0.85rem; margin-top: 48px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="effective">Effective: July 23, 2026</p>
+
+  <div class="notice">
+    <p class="tldr">The short version:</p>
+    <p>Shrinkora compresses your videos entirely on your iPhone or iPad. Your videos never leave your device — the app has no network access at all. There is no account and no login. We collect no analytics or usage data, we do not track you across apps or websites, and we never show ads.</p>
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>Shrinkora ("the app", "we", "us") is developed and distributed by TheKnack. Questions or concerns: <a href="mailto:shrinkora.support@theknack.dev">shrinkora.support@theknack.dev</a>.</p>
+
+  <h2>2. What stays on your device</h2>
+  <p>Shrinkora processes everything locally on your device using Apple's on-device video frameworks (AVFoundation and the hardware video encoder). The app keeps only a small local history of your past compressions — file names, before/after sizes, and dates — stored on your device using Apple's SwiftData. We do not upload, mirror, or read any of it.</p>
+
+  <h2>3. Your videos never leave your device</h2>
+  <p>When you compress a video, the original and the compressed copy stay on your device the entire time. Compression runs on your iPhone's or iPad's own hardware encoder. <strong>Shrinkora has no network access</strong> — the app does not include any networking code, so there is no way for a video to be uploaded, even by accident.</p>
+
+  <h2>4. What we collect off your device: nothing</h2>
+  <p>Shrinkora contains <strong>no analytics and no third-party tracking or diagnostics SDK</strong>. Nothing about how you use the app — not app launches, not screens viewed, not crashes, not performance — is sent to us or to anyone else.</p>
+  <p>This matches Shrinkora's App Store privacy label, which is marked <strong>Data Not Collected</strong>, and the app's bundled privacy manifest, which declares no collected data types and no tracking.</p>
+
+  <h2>5. Choosing a video</h2>
+  <p>Shrinkora uses Apple's system photo picker to let you choose a video. Because of how the picker works, the app <strong>never requests access to your photo library</strong> — you hand the app one video at a time, and the app cannot see anything else in your library.</p>
+
+  <h2>6. Saving the compressed video</h2>
+  <p>When a compression finishes, Shrinkora saves the smaller copy back to your Photos using add-only access — the app can add the file it just made, but it still cannot read your library. Your original is left untouched unless you choose to delete it.</p>
+
+  <h2>7. What we do not do</h2>
+  <ul>
+    <li>We do not require an account, sign-up, or login.</li>
+    <li>We do not track you across apps or websites.</li>
+    <li>We do not sell or share your data with third parties for marketing.</li>
+    <li>We do not use advertising identifiers, and we never show ads.</li>
+    <li>We do not show the App Tracking Transparency prompt — there is nothing to track.</li>
+    <li>We do not integrate any third-party analytics, advertising, or tracking SDKs.</li>
+    <li>We do not access the network — the app ships with no networking capability.</li>
+  </ul>
+
+  <h2>8. App Store purchases</h2>
+  <p>If you purchase Shrinkora Pro (monthly, yearly, or lifetime), Apple processes the transaction. We receive a receipt from Apple confirming your status; we do not receive your payment information. Apple's privacy policy governs payment data: <a href="https://www.apple.com/legal/privacy/" rel="noopener">apple.com/legal/privacy</a>.</p>
+
+  <h2>9. Children</h2>
+  <p>Shrinkora is rated 4+ on the App Store. We do not collect personal data from anyone, including children, and we do not direct any data collection or advertising at children.</p>
+
+  <h2>10. Data retention and deletion</h2>
+  <p>Because your content lives on your device, you control it directly:</p>
+  <ul>
+    <li><strong>Your videos</strong>: originals and compressed copies live in your Photos, under your control.</li>
+    <li><strong>Compression history</strong>: clear individual receipts inside the app.</li>
+    <li><strong>Delete everything</strong>: delete the app, and all local data is removed with it.</li>
+  </ul>
+  <p>We retain no server-side copy of your content, because we never receive it.</p>
+
+  <h2>11. Your rights (GDPR / CCPA and other regions)</h2>
+  <p>Because we hold no personal data about you on any server — and collect no analytics at all — most data-subject requests resolve entirely on your device:</p>
+  <ul>
+    <li>We collect no data off your device, so there is nothing on our side for us to disclose, correct, or delete.</li>
+    <li>We do not "sell" or "share" personal information as those terms are defined under the CCPA.</li>
+    <li>To erase everything, delete the app.</li>
+  </ul>
+  <p>EU/EEA and UK residents retain all rights under the GDPR/UK GDPR, including access, rectification, erasure, and the right to lodge a complaint with a supervisory authority. California residents retain all rights under the CCPA/CPRA.</p>
+
+  <h2>12. Changes to this policy</h2>
+  <p>If we ever change how Shrinkora handles data, this page will update with a new effective date. Substantive changes will also be surfaced in-app on your next launch.</p>
+
+  <h2>13. Governing law</h2>
+  <p>This policy and the operation of Shrinkora are governed by the laws of the Republic of Turkey. Where European Union consumer protections (including the GDPR) provide stronger rights, those rights apply to EU residents.</p>
+
+  <div class="contact">
+    <p><strong>Contact:</strong> <a href="mailto:shrinkora.support@theknack.dev">shrinkora.support@theknack.dev</a></p>
+    <p><strong>Developer:</strong> TheKnack</p>
+  </div>
+
+  <footer>© 2026 TheKnack · <a href="./index.html">Shrinkora</a> · <a href="./terms-of-use.html">Terms</a> · <a href="./support.html">Support</a></footer>
+</main>
+</body>
+</html>

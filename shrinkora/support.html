@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shrinkora Support — help with the on-device video compressor.">
+<title>Support — Shrinkora</title>
+<style>
+  :root { --bg: #F6F1E6; --fg: #211C15; --muted: #6E655A; --accent: #B23A26; --card: #FCF8EF; --border: rgba(41, 34, 23, 0.12); }
+  @media (prefers-color-scheme: dark) { :root { --bg: #17140F; --fg: #F0E8D9; --muted: #A89D89; --accent: #E8542F; --card: #141210; --border: rgba(243, 234, 215, 0.15); } }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; margin: 0; padding: 24px 20px 64px; -webkit-font-smoothing: antialiased; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-family: "New York", Georgia, "Times New Roman", serif; font-size: 2rem; font-weight: 700; margin: 24px 0 8px; padding-bottom: 12px; border-bottom: 3px solid var(--accent); display: inline-block; }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 8px; }
+  p, li { font-size: 1rem; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { opacity: 0.8; }
+  .contact { background: var(--card); border: 1px solid var(--border); padding: 16px 20px; border-radius: 12px; margin-top: 24px; }
+  details { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 4px 16px; margin: 10px 0; }
+  summary { font-weight: 600; cursor: pointer; padding: 10px 0; }
+  footer { color: var(--muted); font-size: 0.85rem; margin-top: 48px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Support</h1>
+
+  <p>Shrinkora is the clean, on-device video compressor — shrink a video so it fits where it's going, with no ads and no uploads. Here's how to get help.</p>
+
+  <div class="contact">
+    <p><strong>Email us:</strong> <a href="mailto:shrinkora.support@theknack.dev">shrinkora.support@theknack.dev</a></p>
+    <p>We usually reply within a couple of days.</p>
+  </div>
+
+  <h2>Frequently asked</h2>
+
+  <details>
+    <summary>How do I compress a video?</summary>
+    <p>Tap <strong>Choose a video</strong> on the Home screen and pick one with the system picker. Choose where it's going — WhatsApp, iMessage, Email, Discord, or a custom size — and Shrinkora computes an encode that fits, shows you the result size and a quality preview, and compresses it on your device.</p>
+  </details>
+
+  <details>
+    <summary>Do my videos get uploaded anywhere?</summary>
+    <p>No. Shrinkora has no network access at all — there is no networking code in the app. Every compression runs on your device's own hardware encoder, and your videos never leave your phone or iPad.</p>
+  </details>
+
+  <details>
+    <summary>Why does the app never ask for photo-library access?</summary>
+    <p>Shrinkora uses Apple's system photo picker, so you hand the app one video at a time. The app cannot see the rest of your library, which is why you never see a "grant access to Photos" prompt.</p>
+  </details>
+
+  <details>
+    <summary>What does "fits WhatsApp" mean?</summary>
+    <p>Each destination has a practical size limit (for example, WhatsApp around 64 MB, Discord's free tier 10 MB, email 25 MB). Shrinkora computes the encode so the result lands under that limit — or, if that isn't possible without dropping quality too far, it tells you honestly before you commit.</p>
+  </details>
+
+  <details>
+    <summary>What's free, and what's in Shrinkora Pro?</summary>
+    <p>Shrinkora includes 3 free compressions at full quality, no watermark. Shrinkora Pro unlocks unlimited compressions, batch mode (compress several at once), and every destination including custom megabyte targets.</p>
+  </details>
+
+  <details>
+    <summary>Will compressing lose quality?</summary>
+    <p>Shrinkora shows you a before/after quality preview and the estimated size before you commit. For most videos at phone-screen size the difference is not noticeable. When a target is small enough to force a visible drop, the app says so plainly and lets you decide.</p>
+  </details>
+
+  <details>
+    <summary>Does it work on iPad?</summary>
+    <p>Yes. Shrinkora runs on iPhone and iPad.</p>
+  </details>
+
+  <div class="contact">
+    <p>Still stuck? <a href="mailto:shrinkora.support@theknack.dev">shrinkora.support@theknack.dev</a></p>
+  </div>
+
+  <footer>© 2026 TheKnack · <a href="./index.html">Shrinkora</a> · <a href="./privacy-policy.html">Privacy</a> · <a href="./terms-of-use.html">Terms</a></footer>
+</main>
+</body>
+</html>
