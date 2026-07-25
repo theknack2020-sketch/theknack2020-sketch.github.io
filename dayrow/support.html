@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dayrow support — how to build a routine, lock the screen, print a strip, and reach a human.">
+<title>Support — Dayrow</title>
+<style>
+  :root {
+    --bg: #EFE3D0; --fg: #2A2118; --muted: #6B5A45;
+    --accent: #B44E30; --card: #F6EDDC; --border: rgba(42, 33, 24, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1C1712; --fg: #F0E3CC; --muted: #B9A489;
+      --accent: #E67D55; --card: #2A2118; --border: rgba(240, 227, 204, 0.16);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.62; margin: 0;
+    padding: 24px 20px 64px; -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: "New York", Georgia, "Times New Roman", serif;
+    font-size: 2rem; font-weight: 700; margin: 24px 0 8px;
+    padding-bottom: 12px; border-bottom: 3px solid var(--accent); display: inline-block;
+  }
+  h2 { font-size: 1.22rem; font-weight: 600; margin: 32px 0 8px; }
+  p, li { font-size: 1rem; }
+  ul { padding-left: 20px; } li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { opacity: .8; }
+  .effective { color: var(--muted); font-size: .9rem; margin-bottom: 24px; }
+  .notice { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+            padding: 14px 16px; border-radius: 10px; margin: 20px 0; }
+  .tldr { font-weight: 600; font-size: 1.05rem; }
+  .card { background: var(--card); border: 1px solid var(--border); padding: 16px 20px; border-radius: 12px; margin-top: 32px; }
+  nav { margin-bottom: 8px; font-size: .9rem; }
+  footer { color: var(--muted); font-size: .85rem; margin-top: 48px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="https://theknack2020-sketch.github.io/dayrow/">← Dayrow</a></nav>
+  <h1>Support</h1>
+  <p class="effective">Dayrow for iPhone and iPad</p>
+
+  <h2>Build your first routine</h2>
+  <p>Tap <strong>Add a routine</strong>, give it a name, then <strong>Add a card</strong> for each step. Drag the cards to reorder them. Tap a card to change its wording or give it a quiet timer.</p>
+
+  <h2>Hand the device to your child</h2>
+  <p>Tap <strong>Start</strong>. Your child sees one big card for now and a small one for what is next, and nothing else. To come back, press and hold the top-left corner of the screen for three seconds and enter your passcode.</p>
+
+  <h2>Lock the screen properly</h2>
+  <p>Dayrow's own screen has no way out except your passcode. iOS Guided Access goes further and stops the Home gesture too: open the Settings app → Accessibility → Guided Access, turn it on and set a passcode there. Then, inside Dayrow, press the side button three times quickly and tap Start.</p>
+
+  <h2>Print a strip</h2>
+  <p>Open a routine and tap <strong>Print a strip</strong>. Dayrow lays the same row out on paper for the fridge, the wall or the classroom.</p>
+
+  <h2>Make a card from your own photo</h2>
+  <p>In the card picker, tap the dashed card with the camera on it. Choose a photo, write what it says, and — with Dayrow Pro — record a voice your child knows saying the step.</p>
+
+  <h2>Restore a purchase</h2>
+  <p>Settings → <strong>Restore a purchase</strong>. Dayrow Pro is a one-time purchase tied to the Apple ID that bought it.</p>
+
+  <h2>Nothing is measured</h2>
+  <p>Dayrow keeps no score, no history and no percentages of how your child did. If you are looking for that, Dayrow is deliberately not the app.</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">Reach a human</h2>
+    <p>Email <a href="mailto:theknack2020@gmail.com">theknack2020@gmail.com</a>. Tell us the device and iOS version and we will come back to you.</p>
+  </div>
+<footer>© 2026 TheKnack · <a href="https://theknack2020-sketch.github.io/dayrow/">Dayrow</a></footer>
+</main>
+</body>
+</html>
