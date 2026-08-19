@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Enoteca Support — how to import a cellar, manage a subscription, and reach a human.">
+<title>Support — Enoteca</title>
+<style>
+  :root {
+    --bg: #F3F1EE; --fg: #241A20; --muted: #56504E; --dim: #6A625F;
+    --accent: #3F624B; --card: #FBFAF7; --tray: #EAE6E2;
+    --border: rgba(36, 26, 32, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1A1116; --fg: #F2EBE4; --muted: #B6ADA8; --dim: #A2999A;
+      --accent: #A7C3AC; --card: #251A21; --tray: #1D1418;
+      --border: rgba(242, 235, 228, 0.15);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.6;
+    margin: 0; padding: 24px 20px 64px; -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 6px; font-family: "New York", Georgia, "Times New Roman", serif; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 8px; }
+  p, li { font-size: 1rem; }
+  .effective { color: var(--dim); font-size: 0.9rem; margin: 0 0 24px; }
+  .notice { background: var(--card); border: 1px solid var(--border); padding: 16px 18px; margin: 24px 0; }
+  .tldr { font-weight: 700; margin: 0 0 6px; }
+  a { color: var(--accent); }
+  ul { padding-left: 20px; }
+  .contact { background: var(--tray); border: 1px solid var(--border); padding: 16px 18px; margin: 32px 0 0; }
+  .contact p { margin: 4px 0; }
+  footer { margin-top: 40px; color: var(--dim); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Support</h1>
+  <p class="effective">Enoteca for iPhone · TheKnack</p>
+
+  <div class="notice">
+    <p class="tldr">Need a person?</p>
+    <p>Email <a href="mailto:theknack2020@gmail.com">theknack2020@gmail.com</a>. A real human reads it. Please say which iPhone and which iOS version you are on — it usually halves the back-and-forth.</p>
+  </div>
+
+  <h2>Bringing a cellar you already keep</h2>
+  <p>Export a CSV from wherever your cellar lives now, then open Enoteca → Settings → Import and choose the file.</p>
+  <ul>
+    <li>Column order does not matter. Enoteca reads the header and recognises common names from other apps — <em>wine</em>, <em>winery</em>, <em>year</em>, <em>qty</em>, <em>varietal</em>, <em>appellation</em>, <em>bin</em> and more.</li>
+    <li>A row with only a name still lands. Nothing is dropped in silence: the receipt at the end tells you exactly how many arrived, how many need a region, and how many rows had nothing to record.</li>
+    <li>Quoted fields, embedded commas and multi-line tasting notes are handled, and Windows line endings are fine.</li>
+    <li>Import does not upload anything. The file is read on your device.</li>
+  </ul>
+
+  <h2>The free tier and Enoteca Pro</h2>
+  <p>Enoteca holds <strong>200 bottles free</strong>, with notes, drinking windows, search and export all included. Enoteca Pro removes the ceiling. Nothing you have already entered is ever locked, and <strong>export stays free forever</strong> on every tier.</p>
+  <p>If an import runs into the free ceiling, the rows that did not fit are reported as waiting — your file is untouched, and importing it again after subscribing brings them in.</p>
+
+  <h2>Managing or cancelling a subscription</h2>
+  <p>Subscriptions are handled by Apple, not by us: <strong>Settings → your name → Subscriptions → Enoteca</strong>. Deleting the app does not cancel a subscription. Refund requests go to Apple at <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>.</p>
+
+  <h2>Restoring a purchase</h2>
+  <p>Open the Enoteca Pro screen and tap <strong>Restore purchases</strong>. If it says nothing was found, the subscription is probably on a different Apple Account — sign in with that one and try again.</p>
+
+  <h2>A grape or region is missing</h2>
+  <p>The bundled list carries 1,892 grapes and 761 regions, and it will never be complete. Anything not on it can be typed in by hand — no field ever blocks you from saving a bottle. If you think something common is missing, email us and we will add it in the next update.</p>
+
+  <h2>Fixing a mistake</h2>
+  <p>Every bottle, tasting note and storage location can be edited or deleted. Tap a bottle → <strong>Edit this bottle</strong>; tap a note to edit it. Deletions ask first. A mistyped entry is never permanent.</p>
+
+  <h2>Where your data lives</h2>
+  <p>On your iPhone, and nowhere else. There is no account, no cloud sync and no server. Because of that, <strong>keep your own backups</strong>: export a CSV now and then, and keep your encrypted device backup switched on. Details in the <a href="./privacy.html">Privacy Policy</a>.</p>
+
+  <div class="contact">
+    <p><strong>Contact:</strong> <a href="mailto:theknack2020@gmail.com">theknack2020@gmail.com</a></p>
+    <p><strong>Developer:</strong> TheKnack</p>
+  </div>
+
+  <footer>© 2026 TheKnack · Enoteca · <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a></footer>
+</main>
+</body>
+</html>
