@@ -71,12 +71,12 @@
 
   <div class="card">
     <h3>Where is my data stored? Is it private?</h3>
-    <p>Everything you log — attacks, symptoms, medications, triggers, check-ins, MIDAS answers, and pressure history — stays on your device using Apple's SwiftData. Nothing is ever sent to a TheKnack server — there isn't one. Your health data is never sold, never shared, and never put into analytics.</p>
+    <p>Everything you log — attacks, symptoms, medications, triggers, check-ins, questionnaire answers, and pressure history — stays on your device. Nothing is ever sent to a TheKnack server — there isn't one. Migora has no analytics at all, and your health data is never sold or shared.</p>
   </div>
 
   <div class="card">
     <h3>What happens when I get a new phone?</h3>
-    <p>Migora stores your log on the device where you created it — it isn't synced to an account or a server. The simplest way to bring it to a new phone is to <strong>restore the new device from your old device's backup</strong> (iCloud Backup or an encrypted computer backup), which includes Migora's data. You can also use the free <strong>CSV export</strong> to keep a copy of your records.</p>
+    <p>Migora stores your log on the device where you created it — it isn't synced to an account or a server. The simplest way to bring it to a new phone is to <strong>restore the new device from your old device's backup</strong> (iCloud Backup or an encrypted computer backup), which includes Migora's data. You can also use the <strong>CSV export</strong> (Settings → Export All Data as CSV) to keep a copy of your records.</p>
   </div>
 
   <div class="card">
@@ -86,22 +86,22 @@
 
   <div class="card">
     <h3>How do pressure features and weather work?</h3>
-    <p>Migora shows local barometric pressure and a short forecast using Apple's WeatherKit. That needs an approximate location, which is sent to Apple to fetch your local weather; it isn't sent to us. Basic pressure and today's trend are free. The 48-hour forecast, your personal pressure-sensitivity reading, and pressure-change alerts are part of Migora Pro. Pressure information is descriptive only — Migora does not predict attacks.</p>
+    <p>Migora records pressure from your device's built-in barometer while the app is open, and fetches hourly pressure for your area from Apple's WeatherKit. The weather request needs an approximate location, which is sent to Apple, never to us. Location is optional: without it, the barometer and your diary still work. Today's pressure and the past 48 hours, with your attacks marked, are included for everyone. The next 48 hours of pressure and pressure-drop alerts are part of Migora Pro. Pressure information is descriptive only — Migora does not predict attacks.</p>
   </div>
 
   <div class="card">
     <h3>What does Migora Pro unlock?</h3>
-    <p>The free version is fully usable forever: unlimited attack logging, Attack Mode, your full calendar and history, daily check-ins, CSV export, and today's pressure with a basic trend — none of it is ever locked. Migora Pro adds the 48-hour pressure forecast and your personal sensitivity reading, Insights (pressure-and-attack overlay, trigger correlations, medication effectiveness, MIDAS trend), the doctor report PDF, and the widget set with advanced notifications.</p>
+    <p>Without Pro you get unlimited attack logging, Attack Mode, your full calendar and history, daily check-ins, reminders, the widget, today's pressure and the past 48 hours, and CSV export — none of it is ever locked. Migora Pro adds the next 48 hours of pressure, pressure-drop alerts, the Insights analysis (your attacks laid over weeks of pressure, trigger and medication patterns) and the doctor report PDF.</p>
   </div>
 
   <div class="card">
     <h3>How much does Migora Pro cost?</h3>
-    <p>Monthly is US$5.99. Yearly is US$34.99 with a 7-day free trial, then it auto-renews yearly until you cancel. Lifetime is a US$69.99 one-time purchase with no subscription and no renewal. Your local price is shown in the app before you buy.</p>
+    <p>Migora Pro is a monthly or a yearly subscription. Your local price is shown in the app before you buy. Where offered, the yearly plan starts with a one-week free trial for new subscribers; then it renews yearly until you cancel.</p>
   </div>
 
   <div class="card">
     <h3>How do I cancel my subscription?</h3>
-    <p>Subscriptions are managed by Apple, not by us. Open iPhone Settings → [your name] → Subscriptions → Migora → Cancel Subscription. You keep Pro until the end of the current billing period. To avoid being charged after the free trial, cancel at least 24 hours before it ends.</p>
+    <p>Subscriptions are managed by Apple, not by us. Open iPhone Settings → [your name] → Subscriptions → Migora → Cancel Subscription. You keep Pro until the end of the current billing period. If you are on a free trial and do not want to be charged, cancel at least 24 hours before it ends.</p>
   </div>
 
   <div class="card">
@@ -111,27 +111,32 @@
 
   <div class="card">
     <h3>I bought Pro but it isn't showing / I'm on a new device</h3>
-    <p>Open the paywall and tap <strong>Restore Purchases</strong>. Make sure you're signed in to the same Apple ID you used to buy. Restore re-applies your subscription or lifetime unlock from Apple's records.</p>
+    <p>In Migora, open the Migora Pro screen (<strong>Settings → Upgrade to Migora Pro</strong>) and tap <strong>Restore</strong>. Make sure you're signed in with the same Apple Account you used to buy. Restore re-applies your purchase from Apple's records.</p>
+  </div>
+
+  <div class="card">
+    <h3>Is a one-time Pro unlock still valid?</h3>
+    <p>Yes. A one-time Pro unlock stays valid, with nothing more to pay. If it isn't showing, tap <strong>Restore</strong> on the Migora Pro screen.</p>
   </div>
 
   <div class="card">
     <h3>How do I share my history with my doctor?</h3>
-    <p>With Migora Pro, open the report screen and generate a <strong>doctor report PDF</strong> — a calendar heat map, frequency and duration, an acute-medication-day count, and your MIDAS trend, all from what you've logged. You can share it however you like. It's a summary of your own records to bring to an appointment, not a clinical assessment.</p>
+    <p>Open <strong>Insights → Doctor Report</strong>. With Migora Pro you get a PDF of your log covering several months, with a calendar heat map, how often and how long your attacks lasted, acute-medication days and the triggers you tagged most. You can print or share it. It's a summary of your own records to bring to an appointment, not a clinical assessment.</p>
   </div>
 
   <div class="card">
     <h3>How do reminders and alerts work?</h3>
-    <p>Migora can send a daily check-in nudge, a gentle post-attack follow-up, and (with Pro) a pressure-change alert. They're scheduled locally on your device, so they work without any push server, and they're always gentle and pressure-free. Enable notifications when Migora asks, or later in iPhone Settings → Migora → Notifications.</p>
+    <p>Migora can send a daily check-in nudge, a gentle post-attack follow-up, (with Pro) a pressure-change alert, and, if you haven't opened Migora for a week, at most two short notes a week apart that your log is there when you need it. They're scheduled locally on your device, so they work without any push server, and they're always gentle and never pushy. Enable notifications when Migora asks, or later in iPhone Settings → Migora → Notifications.</p>
   </div>
 
   <div class="card">
     <h3>How do I export or delete my data?</h3>
-    <p>You can export your log as <strong>CSV</strong> anytime (it's free). To erase everything on your device, use <strong>Settings → Delete All Data</strong> inside Migora, or delete the app. If you keep device backups, remember a copy may remain in your Apple-managed backup until it's deleted or rotates out.</p>
+    <p>You can export your log as <strong>CSV</strong> at any time from <strong>Settings → Export All Data as CSV</strong>; it is always included. To erase everything on your device, use <strong>Settings → Delete All Data</strong> inside Migora, or delete the app. If you keep device backups, remember a copy may remain in your Apple-managed backup until it's deleted or rotates out.</p>
   </div>
 
   <div class="card">
     <h3>Will Migora support other languages?</h3>
-    <p>Version 1.0 ships in English only. We want the experience to feel right in one language before expanding. Additional languages may come in future updates.</p>
+    <p>Migora is in English for now. We want the experience to feel right in one language before expanding. Additional languages may come in future updates.</p>
   </div>
 
   <h2>Troubleshooting</h2>
@@ -154,7 +159,7 @@
   <div class="contact">
     <h3>Still need help?</h3>
     <p><a href="mailto:theknack2020@gmail.com?subject=Migora%20support">theknack2020@gmail.com</a></p>
-    <p>We aim to reply within 2 business days. Please include your iPhone / iPad model, iOS version, and a description of what you saw.</p>
+    <p>We aim to reply within 2 business days. Please include your iPhone or iPad model, its system version, the Migora version (Settings → About), and a description of what you saw.</p>
   </div>
 
   <footer>© 2026 TheKnack · <a href="./index.html">Migora</a> · <a href="./privacy-policy.html">Privacy</a> · <a href="./terms-of-use.html">Terms</a></footer>
