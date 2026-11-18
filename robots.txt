@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://theknack2020-sketch.github.io/sitemap.xml
+Sitemap: https://theknackapps.com/sitemap.xml

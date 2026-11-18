@@ -4,9 +4,9 @@
 
 ## App pages on this site
 
-- [Ethiopian Bible: Lost Books](https://theknack2020-sketch.github.io/ethiopian-bible/): An offline English reader for the King James Bible and the Book of Enoch, with Jubilees, Jasher, Meqabyan and the KJV Apocrypha in the Full Library, and a map of the 81-book Ethiopian canon.
-- [NoBuy: No Spend Day Tracker](https://theknack2020-sketch.github.io/no-buy/): Tracks no-spend days with one question each night, and helps in the moment with an urge timer and a waiting list.
-- [FanWake: Flash & Light Alarm](https://theknack2020-sketch.github.io/fanwake/): An alarm clock whose alarm screen flashes between two colors you pick, with an optional blinking flashlight and, on iPhone, vibration on every flash.
+- [Ethiopian Bible: Lost Books](https://theknackapps.com/ethiopian-bible/): An offline English reader for the King James Bible and the Book of Enoch, with Jubilees, Jasher, Meqabyan and the KJV Apocrypha in the Full Library, and a map of the 81-book Ethiopian canon.
+- [NoBuy: No Spend Day Tracker](https://theknackapps.com/no-buy/): Tracks no-spend days with one question each night, and helps in the moment with an urge timer and a waiting list.
+- [FanWake: Flash & Light Alarm](https://theknackapps.com/fanwake/): An alarm clock whose alarm screen flashes between two colors you pick, with an optional blinking flashlight and, on iPhone, vibration on every flash.
 
 ## All apps on the App Store
 
@@ -65,6 +65,6 @@
 
 ## About
 
-- [About TheKnack](https://theknack2020-sketch.github.io/about/)
-- [Sitemap](https://theknack2020-sketch.github.io/sitemap.xml)
+- [About TheKnack](https://theknackapps.com/about/)
+- [Sitemap](https://theknackapps.com/sitemap.xml)
 - [App Store developer page](https://apps.apple.com/developer/id1885204934)
