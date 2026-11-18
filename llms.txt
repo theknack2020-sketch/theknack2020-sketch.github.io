@@ -1,11 +1,13 @@
 # TheKnack
 
-> TheKnack makes apps for iPhone and iPad. 32 of them are on the App Store today, and all are listed below with one plain sentence and an App Store link. 3 have a full page on this site with key facts, what is included with the download, privacy and answers to common questions.
+> TheKnack makes apps for iPhone and iPad. 32 of them are on the App Store today, and all are listed below with one plain sentence and an App Store link. 5 have a full page on this site with key facts, what is included with the download, privacy and answers to common questions.
 
 ## App pages on this site
 
 - [Ethiopian Bible: Lost Books](https://theknackapps.com/ethiopian-bible/): An offline English reader for the King James Bible and the Book of Enoch, with Jubilees, Jasher, Meqabyan and the KJV Apocrypha in the Full Library, and a map of the 81-book Ethiopian canon.
+- [Septuagint LXX: Old Testament](https://theknackapps.com/septuagint/): An English and Greek Septuagint reader for iPhone and iPad in Brenton’s 1851 edition, with the Apostles’ Map of 1,606 links between the New Testament and the Old.
 - [NoBuy: No Spend Day Tracker](https://theknackapps.com/no-buy/): Tracks no-spend days with one question each night, and helps in the moment with an urge timer and a waiting list.
+- [dB Meter: Decibel Sound Level](https://theknackapps.com/db-meter/): A sound level meter in dBA with the minimum, LEQ and maximum, today’s NIOSH noise dose, and measuring with the screen locked for up to 8 hours.
 - [FanWake: Flash & Light Alarm](https://theknackapps.com/fanwake/): An alarm clock whose alarm screen flashes between two colors you pick, with an optional blinking flashlight and, on iPhone, vibration on every flash.
 
 ## All apps on the App Store
@@ -13,7 +15,7 @@
 ### Faith and reading
 
 - Ethiopian Bible: Lost Books: An offline English reader for the King James Bible and the Book of Enoch, with Jubilees, Jasher, Meqabyan and the KJV Apocrypha in the Full Library, and a map of the 81-book Ethiopian canon. https://apps.apple.com/app/id6793595535
-- Septuagint: Apostles’ Bible: Brenton’s 1851 English translation of the Septuagint, the Greek Old Testament, with a map of where the New Testament quotes it. https://apps.apple.com/app/id6799791328
+- Septuagint LXX: Old Testament: An English and Greek Septuagint reader for iPhone and iPad in Brenton’s 1851 edition, with the Apostles’ Map of 1,606 links between the New Testament and the Old. https://apps.apple.com/app/id6799791328
 
 ### Health and fitness
 
@@ -39,7 +41,7 @@
 
 ### Everyday tools
 
-- dB Meter - Sound Level Meter: A sound level meter that shows the live level in decibels with the minimum, average and maximum, and keeps a history of your measurements. https://apps.apple.com/app/id6760597296
+- dB Meter: Decibel Sound Level: A sound level meter in dBA with the minimum, LEQ and maximum, today’s NIOSH noise dose, and measuring with the screen locked for up to 8 hours. https://apps.apple.com/app/id6760597296
 - FanWake: Flash & Light Alarm: An alarm clock whose alarm screen flashes between two colors you pick, with an optional blinking flashlight and, on iPhone, vibration on every flash. https://apps.apple.com/app/id6760596100
 - Caliper: Level, Ruler & Angle: A bubble level, an on-screen ruler, an angle finder and a quick sound check in one app. https://apps.apple.com/app/id6794116622
 - Ratora: A unit converter for 14 unit families that shows the answer as you type. https://apps.apple.com/app/id6801280293
