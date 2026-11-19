@@ -33,18 +33,32 @@
           words at every character that is not a letter or a digit.
        2. Words of one letter and the filler words below are dropped. When nothing is left (only filler, emoji or
           punctuation), the run is shown as with an empty box: every app, no match count and no closest match.
-       3. A question word matches a word of an app's name or sentence (or its group's name) when it is that word, or
-          that word with or without a plural ending (s, es, or y and ies), in either direction; a question word of
-          four letters or more also matches the start of a longer word. Words begin after any character that is not
-          a letter or a digit, and at a capital after a small letter ("log" finds the Log of WrenchLog). Nothing is
-          matched inside a word: "do" does not find "dose", "log" does not find "blog".
-       4. An app is shown when at least half of the question words match it. Score: a word in the name 8, in the
-          sentence 3, in the group's name 1, and 2 for every question word that matched; the highest score is the
-          closest match, and a tie keeps the catalog order.
-       5. The mark covers the matched word (or, for a start match, the typed part of it); marks that touch or overlap
+       3. Plain match: a question word, as typed, matches a word of an app's name or sentence (or its group's name)
+          when it is that word, or that word with or without a plural ending (s, es, or y and ies); a question word of
+          four letters or more also matches the start of a longer word ("track" finds "tracker"). Words begin after any
+          character that is not a letter or a digit, and at a capital after a small letter ("log" finds the Log of
+          WrenchLog). Nothing is matched inside a word: "do" does not find "dose", "log" does not find "blog".
+       4. Stem match: a word of six letters or more ending in -ing has a stripped stem (spending: spend; saving: sav,
+          save; running: run). A stripped stem, from the question word or from the app's word, matches only the stem
+          itself or the stem with one of the closed endings s, es, er, ers, ed (spending and spend, tracking and
+          tracker, reading and reader, fasting and fast). The start rule is never used on a stripped stem: "read" from
+          "reading" does not find "Readiness", "head" from "heading" does not find "headache".
+       5. When some app matches every question word by plain matches (a group's name counts), the run shows only
+          those apps ("N apps match"), and the one with the highest score is the closest match: a word in the name 8,
+          in the sentence 3, in the group's name 1, and 2 for every question word; a tie keeps the catalog order.
+          A word found only through its stem never makes a closest match.
+       6. Otherwise the run shows each app whose name or sentence matches at least one question word (plain or stem;
+          a group's name does not count here), with no closest match: the apps that match more words first, then the
+          higher score (a word in the name 8, in the sentence 3, 2 less each where it is only the start of a longer
+          word or a stem form, and 2 for every word), then the catalog order; groups follow their first app. The status line names only the words found in the names and sentences of the apps shown
+          ("N apps mention ..."). No other word is claimed.
+       7. The mark covers the matched word (or, for a start match, the typed part of it); marks that touch or overlap
           join into one. */
-    var FILLER = { a: 1, an: 1, the: 1, to: 1, "do": 1, i: 1, my: 1, me: 1, "for": 1, of: 1, and: 1, or: 1,
-      "in": 1, on: 1, "with": 1, need: 1, want: 1, app: 1, apps: 1, is: 1, how: 1 };
+    var FILLER = {};
+    ("a an the to do i my me for of and or in on with need want app apps is how what you your we it are am be can " +
+     "this that some any more most every each at by as from about into up out so if not no yes please help thing " +
+     "things something get have has had will would should could lot much many very really just like")
+      .split(" ").forEach(function (w) { FILLER[w] = 1; });
 
     /* Case and accents folded; U+0131 and U+0130 read as a plain i. Returns the folded text and, for each folded
        character, its index in the original, so marks land on the original text. */
@@ -76,16 +90,37 @@
       }
       return { f: f, words: out };
     }
-    /* How many characters of word w a question word q matches (0: no match). */
-    function matches(q, w) {
+    /* The stripped stems of a word of six letters or more ending in -ing (rule 4: spending: spend; saving: sav,
+       save; running: runn, run); none for any other word. */
+    function stems(x) {
+      if (x.length < 6 || x.slice(-3) !== "ing") return [];
+      var b = x.slice(0, -3), out = [b, b + "e"];
+      if (b.length > 2 && b[b.length - 1] === b[b.length - 2]) out.push(b.slice(0, -1));
+      return out;
+    }
+    /* Rule 4: word w is stem s itself or s with one closed ending. */
+    function closed(s, w) {
+      return w === s || w === s + "s" || w === s + "es" || w === s + "er" || w === s + "ers" || w === s + "ed";
+    }
+    /* Rule 3: how many characters of word w a question word q matches (0: no match). */
+    function plain(q, w) {
       if (q === w || w === q + "s" || w === q + "es" || q === w + "s" || q === w + "es") return w.length;
       if (q.length > 3 && q.slice(-3) === "ies" && w === q.slice(0, -3) + "y") return w.length;
       if (w.length > 3 && w.slice(-3) === "ies" && q === w.slice(0, -3) + "y") return w.length;
       if (q.length >= 4 && w.length > q.length && w.lastIndexOf(q, 0) === 0) return q.length;
       return 0;
     }
+    /* Rule 4: does question word q match word w through a stripped stem (of q or of w)? */
+    function stemmed(q, w) {
+      return stems(q).some(function (s) { return closed(s, w); }) || stems(w).some(function (s) { return closed(s, q); });
+    }
     function questionWords(raw) {
-      return fold(raw).s.split(/[^\p{L}\p{N}]+/u).filter(function (q) { return q.length >= 2 && !FILLER[q]; });
+      var seen = {};
+      return fold(raw).s.split(/[^\p{L}\p{N}]+/u).filter(function (q) {
+        if (q.length < 2 || FILLER[q] || seen[q]) return false;
+        seen[q] = 1;
+        return true;
+      });
     }
 
     var apps = [];
@@ -99,26 +134,41 @@
       });
     });
 
-    /* Every place question word q matches in a text's words: [{at, len}] in folded positions. */
-    function find(text, q) {
+    /* Every place question word q matches in a text's words: [{at, len}] in folded positions; with stem true, the
+       stem matches (rule 4) as well as the plain ones. */
+    function find(text, q, stem) {
       var hits = [];
       text.words.forEach(function (x) {
-        var n = matches(q, x.w);
-        if (n) hits.push({ at: x.at, len: n });
+        var n = plain(q, x.w), whole = n === x.w.length;
+        if (!n && stem && stemmed(q, x.w)) n = x.w.length;
+        if (n) hits.push({ at: x.at, len: n, whole: whole });
       });
       return hits;
     }
+    /* An app against the question words, both ways: plain (rule 5: name, sentence and group's name, plain matches
+       only) and some (rule 6: name and sentence only, plain or stem matches). */
     function score(app, qs) {
-      var total = 0, matched = 0, nameHits = [], sayHits = [];
+      var p = { matched: 0, score: 0, nameHits: [], sayHits: [] };
+      var s = { matched: 0, score: 0, nameHits: [], sayHits: [], found: {} };
       qs.forEach(function (q) {
-        var nh = find(app.name, q), sh = find(app.say, q), gh = find(app.gname, q).length > 0;
-        if (!nh.length && !sh.length && !gh) return;
-        matched++;
-        total += (nh.length ? 8 : 0) + (sh.length ? 3 : 0) + (gh ? 1 : 0) + 2;
-        nameHits = nameHits.concat(nh);
-        sayHits = sayHits.concat(sh);
+        var nh = find(app.name, q, false), sh = find(app.say, q, false), gh = find(app.gname, q, false).length > 0;
+        if (nh.length || sh.length || gh) {
+          p.matched++;
+          p.score += (nh.length ? 8 : 0) + (sh.length ? 3 : 0) + (gh ? 1 : 0) + 2;
+          p.nameHits = p.nameHits.concat(nh);
+          p.sayHits = p.sayHits.concat(sh);
+        }
+        var ns = find(app.name, q, true), ss = find(app.say, q, true);
+        if (ns.length || ss.length) {
+          s.matched++;
+          s.found[q] = 1;
+          var wn = ns.some(function (h) { return h.whole; }), ws = ss.some(function (h) { return h.whole; });
+          s.score += (ns.length ? (wn ? 8 : 6) : 0) + (ss.length ? (ws ? 3 : 1) : 0) + 2;
+          s.nameHits = s.nameHits.concat(ns);
+          s.sayHits = s.sayHits.concat(ss);
+        }
       });
-      return { ok: matched > 0 && matched >= Math.ceil(qs.length / 2), score: total, nameHits: nameHits, sayHits: sayHits };
+      return { plain: p, some: s };
     }
     /* Rewrite an element as text nodes, with <mark> around each hit. */
     function paint(el, text, folded, hits) {
@@ -145,7 +195,9 @@
       var cat = rules ? rules.select(n) : (n === 1 ? "one" : "other");
       var s = status.getAttribute("data-" + key + "-" + cat) || status.getAttribute("data-" + key + "-other") ||
         status.getAttribute("data-" + key) || "";
-      return s.replace("{n}", String(n)).replace("{group}", fill.group || "").replace("{q}", fill.q || "");
+      /* Replacement by function, so special replacement patterns in a typed question stay exactly as typed. */
+      return s.replace("{n}", String(n)).replace("{group}", function () { return fill.group || ""; })
+        .replace("{q}", function () { return fill.q || ""; });
     }
     function groupLabel(key) {
       var g = d.getElementById("g-" + key + "-h");
@@ -173,25 +225,50 @@
       purposes.push(b);
     });
 
+    /* The run in catalog order, kept so that a ranked run (rule 5) can be put back. */
+    var order = groups.map(function (g) { return { g: g, list: g.querySelector(".bands"), items: Array.prototype.slice.call(g.querySelectorAll(".band")) }; });
+    function arrange(rank) {
+      var gs = order.map(function (o, i) {
+        var items = o.items.map(function (li, k) { return { li: li, k: k, r: rank ? rank(li) : 0 }; });
+        items.sort(function (x, y) { return y.r - x.r || x.k - y.k; });
+        return { o: o, i: i, items: items, top: items.length ? items[0].r : 0 };
+      });
+      gs.sort(function (x, y) { return y.top - x.top || x.i - y.i; });
+      /* Nodes move only when the order changes (a moved node would lose focus). */
+      function place(parent, nodes) {
+        var now = Array.prototype.filter.call(parent.children, function (c) { return nodes.indexOf(c) !== -1; });
+        if (now.some(function (c, i) { return c !== nodes[i]; })) nodes.forEach(function (c) { parent.appendChild(c); });
+      }
+      gs.forEach(function (x) { place(x.o.list, x.items.map(function (it) { return it.li; })); });
+      place(run, gs.map(function (x) { return x.o.g; }));
+    }
+    function quoted(s) { return status.getAttribute("data-quote-open") + s + status.getAttribute("data-quote-close"); }
     function apply() {
       var raw = input.value.trim();
       var toks = questionWords(raw);
       var asked = toks.length > 0;  /* false: empty, or only filler, emoji or punctuation (the neutral state) */
-      var shown = [];
-      apps.forEach(function (a) {
-        var r = asked ? score(a, toks) : { ok: true, score: 0, nameHits: [], sayHits: [] };
-        var show = (!activeGroup || a.group === activeGroup) && r.ok;
-        a.li.hidden = !show;
-        paint(a.nm, a.nameText, a.name.f, show ? r.nameHits : []);
-        paint(a.s, a.sayText, a.say.f, show ? r.sayHits : []);
-        if (show) shown.push({ a: a, score: r.score });
+      var results = apps.map(function (a) {
+        return { a: a, r: asked ? score(a, toks) : null };
       });
-      /* The closest match steps forward: a copy of its band, larger, above the run; its own band leaves the run. */
+      var inGroup = function (x) { return !activeGroup || x.a.group === activeGroup; };
+      var full = results.filter(function (x) { return inGroup(x) && asked && x.r.plain.matched === toks.length; });
+      var some = results.filter(function (x) { return inGroup(x) && asked && x.r.some.matched > 0; });
+      var mode = !asked ? "all" : full.length ? "full" : some.length ? "some" : "none";
+      var shown = mode === "all" ? results.filter(inGroup) : mode === "full" ? full : some;
+      results.forEach(function (x) {
+        var show = shown.indexOf(x) !== -1, r = show && x.r ? (mode === "full" ? x.r.plain : x.r.some) : null;
+        x.a.li.hidden = !show;
+        paint(x.a.nm, x.a.nameText, x.a.name.f, r ? r.nameHits : []);
+        paint(x.a.s, x.a.sayText, x.a.say.f, r ? r.sayHits : []);
+      });
+      /* Rule 6: more of the words first, then the higher score; otherwise the catalog order. */
+      var byLi = new Map(results.map(function (x) { return [x.a.li, x.r ? x.r.some.matched * 1000 + x.r.some.score : 0]; }));
+      arrange(mode === "some" ? function (li) { return byLi.get(li) || 0; } : null);
+      /* Rule 5: the closest match steps forward: a copy of its band, larger, above the run; its own band leaves it. */
       while (lead.firstChild) lead.removeChild(lead.firstChild);
       lead.hidden = true;
-      if (asked && shown.length) {
-        shown.sort(function (x, y) { return y.score - x.score; });
-        var top = shown[0].a;
+      if (mode === "full") {
+        var top = full.slice().sort(function (x, y) { return y.r.plain.score - x.r.plain.score; })[0].a;
         var list = make("ul", { "class": "bands" });
         list.appendChild(top.li.cloneNode(true));
         lead.appendChild(list);
@@ -199,11 +276,17 @@
         top.li.hidden = true;
       }
       groups.forEach(function (g) { g.hidden = !g.querySelector(".band:not([hidden])"); });
-      var n = shown.length, q = raw ? status.getAttribute("data-quote-open") + raw + status.getAttribute("data-quote-close") : "";
+      var n = shown.length, q = raw ? quoted(raw) : "";
       var group = activeGroup ? groupLabel(activeGroup) : "";
       var text;
-      if (asked && !n) text = activeGroup ? msg("none-group", 0, { q: q, group: group }) : msg("none", 0, { q: q });
-      else if (asked) text = activeGroup ? msg("match-group", n, { q: q, group: group }) : msg("match", n, { q: q });
+      if (mode === "none") text = activeGroup ? msg("none-group", 0, { q: q, group: group }) : msg("none", 0, { q: q });
+      else if (mode === "full") text = activeGroup ? msg("match-group", n, { q: q, group: group }) : msg("match", n, { q: q });
+      else if (mode === "some") {
+        /* Only the words found in the name or sentence of a shown app, in the order typed. */
+        var words = toks.filter(function (w) { return some.some(function (x) { return x.r.some.found[w]; }); }).map(quoted);
+        var said = words.length < 2 ? words.join("") : words.slice(0, -1).join(", ") + " " + status.getAttribute("data-or") + " " + words[words.length - 1];
+        text = activeGroup ? msg("mention-group", n, { q: said, group: group }) : msg("mention", n, { q: said });
+      }
       else if (activeGroup) text = msg("group", n, { group: group });
       else text = status.getAttribute("data-all");
       if (status.textContent !== text) status.textContent = text;

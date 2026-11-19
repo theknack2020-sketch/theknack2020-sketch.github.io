@@ -460,6 +460,25 @@ body.room { background: var(--g); color: var(--i); }
 .legal-doc table { margin-block: 1rem; border-collapse: collapse; }
 .legal-doc th, .legal-doc td { text-align: start; padding-block: 0.625rem; padding-inline: 0 0.75rem; border-block-end: 2px solid var(--g2, var(--quiet)); vertical-align: top; }
 
+/* ---------------------------------------------------------------- text enlarged on a narrow screen */
+/* Display headings carry their longest word's length in characters (--lw, from the build). Where the space is
+   narrow for the reader's text size (under 15 times the body text), a heading is set no larger than lets that word
+   fit its line (0.58 em per character is above every word of these names in the condensed face; a band's name
+   column is its content box less the icon and the gap), and never smaller than the sentence next to it. Where the
+   word does not fit even at that size, it breaks with a hyphen (hyphens: auto; the page language is set). A sibling
+   card puts its icon above the text there, so the name has the card's full width. At the usual text size none of
+   this applies, from 320 px up (measured). */
+.ask, .door, .bands .band, .sib-text, .siblings { container-type: inline-size; }
+@container (max-width: 15em) {
+  .siblings a { grid-template-columns: minmax(0, 1fr); }
+  .question, .door h1, .bands .band-name, .sib-text strong { hyphens: auto; }
+  .question { font-size: max(1.0625rem, min(clamp(2.75rem, 0.6rem + 9.4vw, 9rem), calc((100cqi - 2 * var(--gut)) / (var(--lw, 1) * 0.58)))); }
+  .door h1 { font-size: max(clamp(1.125rem, 1rem + 0.45vw, 1.375rem), min(clamp(2.75rem, 0.6rem + 9vw, 9.25rem), calc(100cqi / (var(--lw, 1) * 0.58)))); }
+  .bands .band-name { font-size: max(1.125rem, min(clamp(1.5rem, 0.55rem + 3.4vw, 4.5rem), calc((100cqi - 3.625rem) / (var(--lw, 1) * 0.58)))); }
+  .lead .bands .band-name { font-size: max(clamp(1.125rem, 1rem + 0.5vw, 1.375rem), min(clamp(2.25rem, 1.2rem + 4.2vw, 5.5rem), calc((100cqi - 3.625rem) / (var(--lw, 1) * 0.58)))); }
+  .sib-text strong { font-size: max(1.0625rem, min(clamp(1.5rem, 1rem + 1.2vw, 2.125rem), calc(100cqi / (var(--lw, 1) * 0.58)))); }
+}
+
 /* ---------------------------------------------------------------- motion and print */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
