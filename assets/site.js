@@ -1,5 +1,5 @@
-/* TheKnack: progressive enhancement only. Every page reads in full without this file: the home page lists every
-   app, its purposes are plain links to their groups, and the screenshot strips scroll with the keyboard. */
+/* TheKnack: progressive enhancement only. Every page reads in full without this file: the home page shows every
+   app in a grid (its rows and the finder need the script), and the screenshot strips scroll with the keyboard. */
 (function () {
   "use strict";
   var d = document;
@@ -24,8 +24,10 @@
     var lead = d.getElementById("lead");
     var lang = d.documentElement.lang || "en";
     var rules = window.Intl && Intl.PluralRules ? new Intl.PluralRules(lang) : null;
+    var browse = d.getElementById("browse");
     var groups = Array.prototype.slice.call(run.querySelectorAll(".group"));
-    var activeGroup = "";
+    var activeGroup = "";  /* the home has no group filter (design v4): every group is a row of its own */
+    var gridView = false;  /* "Browse all": every group as a grid instead of a sideways row */
     var narrow = window.matchMedia && window.matchMedia("(max-width: 47.99rem)");
 
     /* THE MATCHING RULE (one place; the evidence run checks it against a table of questions).
@@ -126,7 +128,7 @@
     var apps = [];
     groups.forEach(function (g) {
       var label = d.getElementById(g.getAttribute("aria-labelledby"));
-      each(".band", g, function (li) {
+      each(".tile", g, function (li) {
         var nm = li.querySelector(".dir-name"), s = li.querySelector(".dir-text");
         apps.push({ li: li, g: g, group: g.getAttribute("data-group"), nm: nm, s: s,
           nameText: nm.textContent, sayText: s.textContent, name: wordsOf(nm.textContent), say: wordsOf(s.textContent),
@@ -204,29 +206,17 @@
       return g ? g.textContent : "";
     }
 
-    /* Purposes: with the script they are toggle buttons that narrow the run (without it, links to the groups). */
-    var purposes = [];
-    each(".purpose", null, function (a) {
-      var b = make("button", { type: "button", "class": "purpose", "data-group": a.getAttribute("data-group"),
-        "aria-pressed": "false" });
-      while (a.firstChild) b.appendChild(a.firstChild);
-      a.parentNode.replaceChild(b, a);
-      /* In the sideways row of a narrow screen a button that takes focus scrolls fully into view. */
-      b.addEventListener("focus", function () {
-        b.scrollIntoView({ block: "nearest", inline: "nearest", behavior: motion() });
-      });
-      b.addEventListener("click", function () {
-        var g = b.getAttribute("data-group");
-        /* "Browse all" shows every app: it also empties the box. A group toggles. */
-        if (!g) input.value = "";
-        activeGroup = g === activeGroup ? "" : g;
-        update();
-      });
-      purposes.push(b);
+    /* "Browse all N apps": every group as a grid, so every app is in view without sideways scrolling; it also
+       empties the box. Pressed again ("Show the rows") it puts the rows back. */
+    browse.addEventListener("click", function () {
+      var wasAsked = !!input.value.trim();
+      input.value = "";
+      gridView = wasAsked ? true : !gridView;
+      update();
     });
 
     /* The run in catalog order, kept so that a ranked run (rule 5) can be put back. */
-    var order = groups.map(function (g) { return { g: g, list: g.querySelector(".bands"), items: Array.prototype.slice.call(g.querySelectorAll(".band")) }; });
+    var order = groups.map(function (g) { return { g: g, list: g.querySelector(".row"), items: Array.prototype.slice.call(g.querySelectorAll(".tile")) }; });
     function arrange(rank) {
       var gs = order.map(function (o, i) {
         var items = o.items.map(function (li, k) { return { li: li, k: k, r: rank ? rank(li) : 0 }; });
@@ -264,18 +254,27 @@
       /* Rule 6: more of the words first, then the higher score; otherwise the catalog order. */
       var byLi = new Map(results.map(function (x) { return [x.a.li, x.r ? x.r.some.matched * 1000 + x.r.some.score : 0]; }));
       arrange(mode === "some" ? function (li) { return byLi.get(li) || 0; } : null);
-      /* Rule 5: the closest match steps forward: a copy of its band, larger, above the run; its own band leaves it. */
+      /* Rule 5: the closest match steps forward: a copy of its tile, larger, first on the grid; its own tile leaves. */
       while (lead.firstChild) lead.removeChild(lead.firstChild);
       lead.hidden = true;
       if (mode === "full") {
         var top = full.slice().sort(function (x, y) { return y.r.plain.score - x.r.plain.score; })[0].a;
-        var list = make("ul", { "class": "bands" });
+        var list = make("ul", { "class": "row" });
         list.appendChild(top.li.cloneNode(true));
         lead.appendChild(list);
         lead.hidden = false;
         top.li.hidden = true;
       }
-      groups.forEach(function (g) { g.hidden = !g.querySelector(".band:not([hidden])"); });
+      groups.forEach(function (g) { g.hidden = !g.querySelector(".tile:not([hidden])"); });
+      /* Rows (no attribute), every group as a grid ("grid"), or one grid of the matches ("search"). */
+      var view = asked ? "search" : gridView ? "grid" : "";
+      if ((run.getAttribute("data-view") || "") !== view) {
+        if (view) run.setAttribute("data-view", view); else run.removeAttribute("data-view");
+        shelvesChanged();
+      }
+      browse.setAttribute("aria-pressed", String(view === "grid"));
+      var label = browse.getAttribute(view === "grid" ? "data-on" : "data-off");
+      if (browse.textContent !== label) browse.textContent = label;
       var n = shown.length, q = raw ? quoted(raw) : "";
       var group = activeGroup ? groupLabel(activeGroup) : "";
       var text;
@@ -291,36 +290,138 @@
       else text = status.getAttribute("data-all");
       if (status.textContent !== text) status.textContent = text;
       clear.hidden = !raw;
-      purposes.forEach(function (p) { p.setAttribute("aria-pressed", String(p.getAttribute("data-group") === activeGroup)); });
     }
     var running = null;
     function update() {
       if (running && running.skipTransition) running.skipTransition();
-      if (d.startViewTransition && !reduced()) running = d.startViewTransition(apply); else apply();
+      if (d.startViewTransition && !reduced()) {
+        running = d.startViewTransition(apply);
+        /* A transition skipped by the next keystroke rejects its promises: expected, not an error. */
+        ["ready", "finished", "updateCallbackDone"].forEach(function (k) {
+          if (running[k] && running[k].catch) running[k].catch(function () {});
+        });
+      } else apply();
     }
     function firstResult() {
-      return lead.querySelector("a") || run.querySelector(".band:not([hidden]) a");
+      return lead.querySelector("a") || run.querySelector(".group:not([hidden]) .tile:not([hidden]) a");
     }
-    input.addEventListener("input", update);
+    /* When the box goes from empty to holding words (the first letter typed, or a paste), the search takes the stage
+       on every screen: the page scrolls so the question and its box sit at the top of the window (on a narrow screen
+       the box itself, as on focus below), with the results under them. Further letters, clearing the box and Clear
+       do not move the page. */
+    var ask = finder.closest(".ask") || finder, held = !!input.value;
+    var question = ask.querySelector(".question");
+    /* On a narrow screen: the box at the top of the window and the question just above it, wholly out of view (never
+       cut through its letters). The letters' descenders paint a little below the heading's box, so the page goes 4 px
+       further; on a phone the box sits 10 px under the question (site.css), so it keeps 6 px of air above it. */
+    function boxTop() {
+      return question ? question.getBoundingClientRect().bottom + 4 : finder.getBoundingClientRect().top - 12;
+    }
+    input.addEventListener("input", function () {
+      var has = !!input.value;
+      if (has && !held) {
+        var top = narrow && narrow.matches ? boxTop() : ask.getBoundingClientRect().top;
+        if (Math.abs(top) > 2) window.scrollTo({ top: window.pageYOffset + top, behavior: motion() });
+      }
+      held = has;
+      update();
+    });
     /* On a narrow screen the box moves to the top of the window when it takes focus, so the first results sit above
-       the on-screen keyboard; on a wide screen nothing moves. */
+       the on-screen keyboard; on a wide screen nothing moves on focus. */
     input.addEventListener("focus", function () {
       if (!narrow || !narrow.matches) return;
-      var top = finder.getBoundingClientRect().top - 12;
+      var top = boxTop();
       if (Math.abs(top) > 2) window.scrollTo({ top: window.pageYOffset + top, behavior: motion() });
     });
     input.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && input.value) { input.value = ""; update(); }
+      if (e.key === "Escape" && input.value) { input.value = ""; held = false; update(); }
       if ((e.key === "ArrowDown" || e.key === "Enter") && input.value.trim()) {
         var link = firstResult();
         if (link) link.focus();
       }
     });
-    clear.addEventListener("click", function () { input.value = ""; update(); input.focus(); });
+    clear.addEventListener("click", function () { input.value = ""; held = false; update(); input.focus(); });
     finder.hidden = false;
     status.hidden = false;
+    browse.hidden = false;
     apply();
   }
+
+  /* ------------------------------------------------------------ rows (home page) */
+  /* Each row scrolls sideways (native scrolling with snap). With the script: previous and next buttons in the row's
+     head (pointer screens, by CSS; disabled at the ends, hidden when the row fits), a fade at each end that still
+     has more, and a tile whose link takes keyboard focus is brought fully into view, clear of the fades. */
+  var shelves;  /* set below; the finder's first apply() runs before the rows exist */
+  function shelfState(s) {
+    var row = s.row, max = row.scrollWidth - row.clientWidth - 2, x = Math.abs(row.scrollLeft);
+    var fits = max <= 2 || !!(run && run.getAttribute("data-view"));
+    s.frame.classList.toggle("fits", fits);
+    s.frame.classList.toggle("not-start", !fits && x > 2);
+    s.frame.classList.toggle("at-end", !fits && x >= max);
+    s.prev.disabled = fits || x <= 2;
+    s.next.disabled = fits || x >= max;
+    s.nav.hidden = fits;
+  }
+  function shelvesChanged() { if (shelves) shelves.forEach(shelfState); }
+  shelves = [];
+  each(".shelf", null, function (shelf) {
+    var frame = shelf.querySelector(".shelf-frame"), row = shelf.querySelector(".row"), head = shelf.querySelector(".shelf-head");
+    if (!frame || !row || !head) return;
+    var s = { frame: frame, row: row, nav: make("div", { "class": "shelf-nav" }) };
+    var rtl = getComputedStyle(row).direction === "rtl";
+    [["prev", -1], ["next", 1]].forEach(function (p) {
+      var b = make("button", { type: "button", "aria-label": shelf.getAttribute("data-" + p[0]) });
+      b.appendChild(make("span", { "class": "chev " + ((p[1] > 0) === rtl ? "left" : "right"), "aria-hidden": "true" }));
+      b.addEventListener("click", function () {
+        row.scrollBy({ left: p[1] * (rtl ? -1 : 1) * row.clientWidth * 0.85, behavior: motion() });
+      });
+      s.nav.appendChild(b);
+      s[p[0]] = b;
+    });
+    head.appendChild(s.nav);
+    row.addEventListener("scroll", function () { shelfState(s); }, { passive: true });
+    /* Focus inside a tile: the whole tile comes into view, clear of the fades (rows only; the grids do not scroll). */
+    row.addEventListener("focusin", function (e) {
+      var tile = e.target.closest(".tile");
+      if (!tile || run.getAttribute("data-view")) return;
+      var fr = row.getBoundingClientRect(), tr = tile.getBoundingClientRect();
+      var pad = parseFloat(getComputedStyle(row).paddingInlineStart) || 16;
+      var fade = Math.max(pad, parseFloat(getComputedStyle(frame, "::after").width) || pad);
+      /* The row snaps to a tile's start, so it moves to a snap point: this tile's own when it is cut at the start,
+         otherwise the first tile start at which this tile ends clear of the fade (the row's end when there is none). */
+      var dx = 0, starts = rtl ? function (t) { return fr.right - pad - t.getBoundingClientRect().right; }
+                                : function (t) { return t.getBoundingClientRect().left - fr.left - pad; };
+      /* (A scroll by a fraction of a pixel would still move a snapping row to the next snap point: 1 px of slack.) */
+      var cutStart = starts(tile) < -1;
+      var over = rtl ? fr.left + fade - tr.left : tr.right - fr.right + fade;
+      if (cutStart) dx = starts(tile);
+      else if (over > 1) {
+        dx = Math.abs(row.scrollWidth - row.clientWidth) - Math.abs(row.scrollLeft);
+        for (var i = 0; i < row.children.length; i++) {
+          var from = starts(row.children[i]);
+          if (from >= over - 1) { dx = Math.min(dx, from); break; }
+        }
+      }
+      if (Math.abs(dx) >= 1) row.scrollBy({ left: (rtl ? -1 : 1) * dx, behavior: motion() });
+      /* After the browser's own scroll to the link (smooth when motion is allowed), keep the whole tile, and its
+         row's head when there is room, in the window. */
+      var done = false;
+      function keep() {
+        if (done) return;
+        done = true;
+        window.removeEventListener("scrollend", keep);
+        var b = tile.getBoundingClientRect();
+        var top = (b.height + 80 < window.innerHeight ? head.getBoundingClientRect().top : b.top) - 12;
+        var dy = top < 0 ? top : b.bottom + 12 > window.innerHeight ? b.bottom + 12 - window.innerHeight : 0;
+        if (dy) window.scrollBy({ top: dy, behavior: "instant" });
+      }
+      if (reduced()) window.requestAnimationFrame(keep);
+      else { window.addEventListener("scrollend", keep); window.setTimeout(keep, 700); }
+    });
+    shelves.push(s);
+    shelfState(s);
+  });
+  window.addEventListener("resize", shelvesChanged, { passive: true });
 
   /* ------------------------------------------------------------ screenshot strips (app pages) */
   /* A strip wider than the screen becomes a tab stop (it scrolls with the arrow keys) and gets previous and next

@@ -90,87 +90,9 @@ ul, ol { padding: 0; }
 .foot-links a { display: inline-flex; align-items: center; min-block-size: 2.75rem; overflow-wrap: anywhere; min-inline-size: 0; }
 .foot-links li { min-inline-size: 0; max-inline-size: 100%; }
 
-/* ---------------------------------------------------------------- home: the question */
-.ask { padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(2.5rem, 5vw, 4rem); }
-.ask > :not(.lead) { margin-inline: var(--gut); }
-.ask-intro { display: grid; gap: 0.75rem 3rem; }
-.ask-intro h1 { text-wrap: balance; font-weight: 700; font-size: clamp(1.375rem, 1.1rem + 1vw, 2rem); line-height: 1.1; }
-.ask-intro .lede { max-inline-size: 36em; color: var(--quiet); }
-@media (min-width: 62rem) {
-  .ask-intro { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: baseline; }
-}
-.question {
-  margin-block-start: clamp(2rem, 5vw, 4rem);
-  font-weight: 800; font-size: clamp(2.75rem, 0.6rem + 9.4vw, 9rem); line-height: 1.04;
-  letter-spacing: -0.022em; text-wrap: balance;
-}
-.finder {
-  display: flex; align-items: flex-end; gap: 1rem; max-inline-size: 60rem;
-  margin-block-start: clamp(1rem, 2.5vw, 2rem); border-block-end: 4px solid var(--ink);
-}
-.finder input {
-  flex: 1; min-inline-size: 0; min-block-size: 3.5rem; margin: 0; padding: 0.25rem 0;
-  border: 0; border-radius: 0; background: transparent; color: inherit; -webkit-appearance: none; appearance: none;
-  font: 500 clamp(1.5rem, 0.9rem + 3.2vw, 3.5rem)/1.1 var(--cond); font-stretch: condensed;
-}
-.finder input::-webkit-search-cancel-button { display: none; }
-.finder input::placeholder { color: var(--quiet); opacity: 1; }
-/* One focus indication: the box's own rule grows from 4 to 10 px (no second line around it). */
-.finder input:focus { outline: none; }
-.finder:focus-within { box-shadow: 0 6px 0 var(--ink); }
-@media (forced-colors: active) { .finder:focus-within { outline: 3px solid CanvasText; outline-offset: 6px; } }
-.clear {
-  flex: none; margin-block-end: 0.5rem; min-block-size: 2.75rem; min-inline-size: 2.75rem; padding: 0 1rem;
-  border: 2px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); cursor: pointer;
-  font: 600 1.0625rem/1 var(--cond); font-stretch: condensed;
-}
-.clear:hover { background: var(--ink); color: var(--paper); }
-.clear:focus-visible { outline-color: var(--ink); }
-.purposes { margin-block-start: 1.5rem; }
-.purposes ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.purpose {
-  display: inline-flex; align-items: center; gap: 0.5rem; min-block-size: 2.75rem; padding: 0.375rem 0.875rem;
-  border: 2px solid var(--ink); background: var(--paper); color: var(--ink); text-decoration: none; cursor: pointer;
-  font: 600 1.0625rem/1.15 var(--cond); font-stretch: condensed;
-}
-.purpose .n { font-weight: 500; color: var(--quiet); }
-.purpose:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-.purpose[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.purpose[aria-pressed="true"] .n { color: inherit; }
-.purpose:focus-visible { outline-color: var(--ink); }
-.status { margin-block-start: 1.25rem; font: 600 1.1875rem/1.35 var(--cond); font-stretch: condensed; max-inline-size: 40em; }
+/* ---------------------------------------------------------------- bands (rooms, About, 404) and shared bits */
 .lead { margin-block-start: 1.5rem; }
-/* On a narrow screen, with the script (the purposes are buttons then), the purposes are one row that scrolls
-   sideways (a fade at its end shows there is more), so the results start close under the box, above an on-screen
-   keyboard; without the script there is no box, and the purpose links wrap as before. The run is at least a screen tall there, so the
-   box can stay at the top of the window however few apps match. */
-@media (max-width: 47.99rem) {
-  .ask > .purposes:has(button) { position: relative; margin-inline: 0; margin-block-start: 0.75rem; }
-  .purposes ul:has(button) {
-    flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain;
-    padding-block: 0.375rem; padding-inline: var(--gut) 3rem; scroll-padding-inline: var(--gut) 3rem;
-  }
-  .purposes li:has(button) { flex: none; }
-  .purposes:has(button)::after {
-    content: ""; position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: 2.5rem; pointer-events: none;
-    background: linear-gradient(to right, transparent, var(--paper));
-  }
-  [dir="rtl"] .purposes:has(button)::after { background: linear-gradient(to left, transparent, var(--paper)); }
-  .status { margin-block-start: 0.75rem; }
-  .lead { margin-block-start: 0.75rem; }
-  .run { min-block-size: 100svh; }
-}
-
-/* ---------------------------------------------------------------- the run of bands */
-.group { margin-block-end: clamp(2.5rem, 6vw, 5rem); }
-.group-head {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem;
-  padding: 0 var(--gut) clamp(0.75rem, 2vw, 1.25rem);
-}
-.group-head h2 { font-weight: 700; font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem); line-height: 1.06; letter-spacing: -0.01em; }
-.group-head .count { color: var(--quiet); font: 500 1.125rem/1 var(--cond); font-stretch: condensed; }
-.bands { list-style: none; }
-
+@media (max-width: 47.99rem) { .lead { margin-block-start: 0.75rem; } }
 .band {
   --d: var(--bl); --di: var(--il); --e: var(--el, transparent);
   background: var(--d); color: var(--di);
@@ -179,73 +101,284 @@ ul, ol { padding: 0; }
 @media (prefers-color-scheme: dark) { .band { --d: var(--bd); --di: var(--id); --e: var(--ed, transparent); } }
 /* Every icon on a band or door keeps a faint ring of the band's ink, so an icon of the band's own color keeps its edge. */
 .band img, .door .app-icon { box-shadow: 0 0 0 1px color-mix(in srgb, var(--di) 30%, transparent); }
-.bands .band {
-  display: grid; align-items: start;
-  grid-template-columns: 2.75rem minmax(0, 1fr);
-  grid-template-areas: "icon name" "text text" "links links";
-  gap: 0.625rem 0.875rem;
-  padding: 1.125rem var(--gut);
-}
-.dir-icon { grid-area: icon; inline-size: 2.75rem; block-size: 2.75rem; border-radius: 22.5%; }
-.band-name {
-  grid-area: name; font-weight: 800; font-size: clamp(1.5rem, 0.55rem + 3.4vw, 4.5rem); line-height: 1.12;
-  letter-spacing: -0.012em; text-wrap: balance; min-inline-size: 0;
-}
-.dir-text { grid-area: text; display: block; font-weight: 500; line-height: 1.45; max-inline-size: 34em; }
-.band-links { grid-area: links; display: flex; flex-wrap: wrap; gap: 0 1.75rem; margin-block-start: 0.375rem; }
-/* Link text sits on the text's own line; the hit area is 44 px tall around it. */
-.band-links a {
-  display: inline-block; padding: 0.75rem 0.25rem; margin: -0.75rem -0.25rem;
-  font: 600 1.125rem/1.2 var(--cond); font-stretch: condensed;
-  text-decoration-thickness: 2px; text-underline-offset: 0.25em;
-}
-.band-name, .dir-text, .band-links { text-box: trim-both cap alphabetic; }
-/* A match in a sentence is set in reverse: the band color on a block of the band's ink as tall as the font's own box,
-   which holds every ascender and descender. A match in a name (set solid, lines close together) keeps its letters and
-   gets a thick underline in the band's ink that breaks around descenders; neither can cut a letter. */
-.band mark {
-  background: var(--di); color: var(--d); padding-inline: 0.06em;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone;
-}
-.band-name mark {
-  background: none; color: inherit; padding-inline: 0;
-  text-decoration: underline; text-decoration-thickness: max(3px, 0.07em); text-underline-offset: 0.08em;
-  text-decoration-skip-ink: auto;
-}
-@media (min-width: 48rem) {
-  .bands .band { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1rem 1.5rem; padding-block: 1.75rem; }
-  .dir-icon { inline-size: 3.5rem; block-size: 3.5rem; }
-  .dir-text { font-size: 1.125rem; }
-}
-@media (min-width: 62rem) {
-  .bands .band {
-    grid-template-columns: 4rem minmax(0, 1.3fr) minmax(0, 1fr);
-    grid-template-areas: "icon name text" "icon name links";
-    grid-template-rows: auto 1fr; align-items: start; column-gap: clamp(1.5rem, 3vw, 3.5rem); row-gap: 1.25rem;
-    padding-block: 2.25rem;
-  }
-  .dir-icon { inline-size: 4rem; block-size: 4rem; }
-  .band-links { align-self: end; margin-block-start: 0; }
-}
-/* The closest match steps forward: its band, larger, above the rest. */
-.lead .bands .band { padding-block: clamp(1.75rem, 4vw, 3.25rem); }
-.lead .band-name { font-size: clamp(2.25rem, 1.2rem + 4.2vw, 5.5rem); }
-.lead .dir-text { font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); }
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-group(*) { animation-duration: 0.3s; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); }
 }
-
-/* ---------------------------------------------------------------- home: about the studio */
-.studio { padding: clamp(1rem, 3vw, 2rem) var(--gut) clamp(2.5rem, 5vw, 4rem); }
-.studio h2 { font-weight: 700; font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem); line-height: 1.06; margin-block-end: 1.5rem; }
-.studio-text { display: grid; gap: 1rem 3rem; max-inline-size: 72rem; }
-.studio-text p { max-inline-size: 30em; font-size: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem); line-height: 1.5; }
-@media (min-width: 62rem) { .studio-text { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .more, .back { margin-block-start: 1.5rem; }
 .more a, .back a, .links a {
   display: inline-flex; align-items: center; min-block-size: 2.75rem;
   font: 600 1.1875rem/1.2 var(--cond); font-stretch: condensed;
   text-decoration-thickness: 2px; text-underline-offset: 0.25em;
+}
+
+/* ---------------------------------------------------------------- home: the catalog (design v4) */
+/* The home page is dark for every visitor: its frame is the site's own dark paper and ink, and the only color on it
+   is the apps' (each tile carries its dark band pair: --c ground under its words, --ci their ink, at least 7:1;
+   --c2 the poster's ground; --h the drawn poster's halo, color.poster_halo; --e the faint edge of a band close to
+   black). A billboard for one app (by rule: build_site.billboard_app), the question, then one sideways row per
+   group with native scrolling and snap; "Browse all", the finder and a page without the script show grids. */
+html:has(> body.hub) { background: #000000; color-scheme: dark; }
+body.hub {
+  --paper: #000000; --ink: #FFFFFF; --quiet: #A6A6A6; --rule: #FFFFFF;
+  --soft: #D4D4D4;       /* 14.2:1 on black: running text on the dark frame */
+  --seam: #3D3D3D;       /* hairlines between the home's parts; never text */
+  --fade: clamp(2rem, 5vw, 4.5rem);
+  --tgap: clamp(0.625rem, 1.2vw, 1rem);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: dark; overflow-x: clip;
+}
+.hub button { font: inherit; color: inherit; }
+
+/* The billboard: the app's 21:9 store header art, its icon, name, sentence and two links. */
+.billboard { position: relative; isolation: isolate; }
+.bb-art img { inline-size: 100%; aspect-ratio: 21 / 9; block-size: auto; object-fit: cover; }
+.bb-art { -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent); mask-image: linear-gradient(to bottom, #000 60%, transparent); }
+.bb-text { position: relative; padding: 0 var(--gut) clamp(1.25rem, 4vw, 2.5rem); max-inline-size: 46rem; }
+.bb-icon {
+  inline-size: 4rem; block-size: 4rem; border-radius: 22.5%; margin-block-end: 1rem;
+  box-shadow: 0 0 0 1px color-mix(in srgb, #FFFFFF 30%, transparent);
+}
+.bb-name { font-weight: 800; font-size: clamp(2rem, 1.2rem + 3vw, 4rem); line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; }
+.bb-say { margin-block-start: 0.75rem; max-inline-size: 34em; color: var(--soft); font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); line-height: 1.5; }
+.bb-links { display: flex; flex-wrap: wrap; gap: 0.625rem 0.75rem; margin-block-start: 1.25rem; }
+.bb-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-block-size: 2.75rem; padding: 0.25rem 1.125rem;
+  border: 2px solid var(--ink); border-radius: 999px; text-decoration: none;
+  font: 600 1.125rem/1.15 var(--cond); font-stretch: condensed;
+}
+.bb-room { background: var(--ink); color: var(--paper); }
+.bb-store { background: var(--paper); color: var(--ink); }
+.bb-btn:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.bb-btn:focus-visible { outline-color: var(--ink); outline-offset: 4px; }
+@media (max-width: 47.99rem) {
+  /* The art carries the app's emblem; without the icon the question comes into the phone's first screen. */
+  .bb-icon { display: none; }
+  .bb-say { font-size: 1rem; line-height: 1.45; }
+}
+@media (min-width: 64rem) {
+  .billboard { display: flex; align-items: center; min-block-size: max(calc(72vw * 9 / 21), 26rem); }
+  .bb-art {
+    position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: 72%; z-index: -1;
+    /* Clear for the first tenth: at 1024 px the art's left edge sits under the two buttons (fix 2, 5c). */
+    -webkit-mask-image: linear-gradient(to right, transparent 10%, #000 45%), linear-gradient(to bottom, #000 72%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 10%, #000 45%), linear-gradient(to bottom, #000 72%, transparent);
+    mask-composite: intersect;
+  }
+  .bb-art img { block-size: 100%; aspect-ratio: auto; }
+  .bb-text { inline-size: min(44%, 38rem); padding-block: 2rem 3rem; }
+}
+[dir="rtl"] .bb-art { inset-inline-end: auto; inset-inline-start: 0; }
+
+/* The question: one band under the billboard, the question beside the box on a wide screen. */
+.ask { padding: clamp(1rem, 3vw, 1.75rem) var(--gut) 0.5rem; }
+.ask > * { max-inline-size: 72rem; }
+.ask::before { content: ""; display: block; border-block-start: 1px solid var(--seam); margin-block-end: clamp(1rem, 3vw, 1.75rem); }
+.question { font-weight: 800; font-size: clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem); line-height: 1.04; letter-spacing: -0.02em; text-wrap: balance; }
+.finder { display: flex; align-items: flex-end; gap: 1rem; margin-block-start: 0.375rem; border-block-end: 4px solid var(--ink); }
+/* Phones: 4 px more under the question; when the search takes the stage the page scrolls 4 px past the question's
+   box (its descenders paint below it), so the box still keeps 6 px of air under the window's top edge. */
+@media (max-width: 47.99rem) { .finder { margin-block-start: 0.625rem; } }
+.finder input {
+  flex: 1; min-inline-size: 0; min-block-size: 3.25rem; margin: 0; padding: 0.25rem 0;
+  border: 0; border-radius: 0; background: transparent; color: inherit; -webkit-appearance: none; appearance: none;
+  font: 500 min(clamp(1.375rem, 1rem + 1.6vw, 2.5rem), 8.8vw)/1.1 var(--cond); font-stretch: condensed;  /* 8.8vw: the hint stays whole with text enlarged */
+}
+.finder input::-webkit-search-cancel-button { display: none; }
+.finder input::placeholder { color: var(--quiet); opacity: 1; }
+/* One focus indication: the box's own rule grows from 4 to 10 px. */
+.finder input:focus { outline: none; }
+.finder:focus-within { box-shadow: 0 6px 0 var(--ink); }
+@media (forced-colors: active) { .finder:focus-within { outline: 3px solid CanvasText; outline-offset: 6px; } }
+.hub :is(.clear, .browse, .shelf-nav button) {
+  flex: none; min-block-size: 2.75rem; min-inline-size: 2.75rem; padding: 0 1rem; cursor: pointer;
+  border: 2px solid var(--ink); border-radius: 999px; background: var(--paper); color: var(--ink);
+  font: 600 1.0625rem/1 var(--cond); font-stretch: condensed;
+}
+.clear { margin-block-end: 0.5rem; }
+.hub :is(.clear, .browse, .shelf-nav button:not(:disabled)):hover, .browse[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.hub :is(.clear, .browse, .shelf-nav button):focus-visible { outline-color: var(--ink); }
+.ask-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; margin-block-start: 0.875rem; }
+.status { font: 600 1.125rem/1.35 var(--cond); font-stretch: condensed; color: var(--soft); max-inline-size: 40em; }
+@media (min-width: 64rem) {
+  .ask { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 2.5rem; align-items: end; }
+  .ask::before, .ask-foot { grid-column: 1 / -1; }
+  .question { padding-block-end: 0.5rem; }
+  .finder { margin-block-start: 0; }
+}
+
+/* Rows: one per group (and the other apps with a full page), scrolling sideways with snap. */
+.catalog { container: catalog / inline-size; padding-block-end: clamp(2rem, 5vw, 4rem); overflow-anchor: none; }  /* the results change under the box: the page never follows them */
+.shelf { margin-block-start: clamp(1.5rem, 3.2vw, 2.75rem); }
+.shelf-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; padding: 0 var(--gut) 0.5rem; }
+.shelf-head h2 { font-weight: 700; font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.25rem); line-height: 1.08; letter-spacing: -0.01em; }
+.shelf-head .count { color: var(--quiet); font: 500 1.125rem/1 var(--cond); font-stretch: condensed; }
+.shelf-nav { display: none; margin-inline-start: auto; gap: 0.5rem; }
+.shelf-nav button { padding: 0; display: inline-grid; place-items: center; }
+.shelf-nav button:disabled { opacity: 0.4; cursor: default; }
+@media (hover: hover) and (pointer: fine) { .shelf-nav:not([hidden]) { display: flex; } }
+.shelf-frame { position: relative; }
+.row {
+  list-style: none; display: flex; gap: var(--tgap);
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+  padding: 0.5rem var(--gut) 0.875rem; scroll-padding-inline: var(--gut);
+  scrollbar-width: thin; scrollbar-color: #5C5C5C transparent;
+}
+.row > li { flex: none; scroll-snap-align: start; }
+/* The ends fade into the black where there is more; the script removes the fade at an end it has reached. */
+.shelf-frame::before, .shelf-frame::after {
+  content: ""; position: absolute; inset-block: 0 0.875rem; inline-size: var(--fade); pointer-events: none; z-index: 4;
+  transition: opacity 0.2s linear;
+}
+.shelf-frame::after { inset-inline-end: 0; background: linear-gradient(to right, transparent, var(--paper) 85%); }
+.shelf-frame::before { inset-inline-start: 0; background: linear-gradient(to left, transparent, var(--paper) 85%); opacity: 0; }
+[dir="rtl"] .shelf-frame::after { background: linear-gradient(to left, transparent, var(--paper) 85%); }
+[dir="rtl"] .shelf-frame::before { background: linear-gradient(to right, transparent, var(--paper) 85%); }
+.shelf-frame.not-start::before { opacity: 1; }
+.shelf-frame.at-end::after, .shelf-frame.fits::after { opacity: 0; }
+
+/* The tile: a poster (store art, or the icon on its own colors) and the app's words on its band color. */
+.tile {
+  --tw: min(clamp(15rem, 72vw, 18.75rem), calc(100vw - 2 * var(--gut) - 2rem)); --pr: 0.6667;
+  position: relative; display: flex; flex-direction: column; inline-size: var(--tw);
+  background: var(--c); color: var(--ci); border-radius: 0.5rem;
+  overflow: hidden; overflow: clip;  /* clip: a focused link never scrolls the tile's own box */
+}
+.tile-wide { --tw: min(86vw, 33.75rem, calc(100vw - 2 * var(--gut) - 2rem)); --pr: 0.42857; }  /* 33.75rem: 1080 px at 2x, the 1080 file */
+.tile::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3;
+  box-shadow: inset 0 0 0 1px var(--e, transparent);
+}
+.tile:focus-within { outline: 3px solid var(--ink); outline-offset: 3px; }
+.poster { position: relative; overflow: hidden; aspect-ratio: 3 / 2; flex: none; background: var(--c2); }
+.tile-wide .poster { aspect-ratio: 21 / 9; }
+.poster-art .art { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.poster .alt-icon { display: none; }
+/* A drawn poster: the icon on the app's deeper band, lit by a halo in the icon's own hue. */
+.poster-drawn { display: grid; place-items: center; background: radial-gradient(closest-side, var(--h), transparent 100%) center / 78% 118% no-repeat, var(--c2); }
+.poster-drawn .mark-icon, .poster .alt-icon {
+  inline-size: 5.25rem; block-size: 5.25rem; border-radius: 22.5%;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ci) 30%, transparent), 0 14px 32px rgb(0 0 0 / 0.45);
+}
+.info { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.75rem 1rem 0.625rem; flex: 1; background: var(--c); }
+.tile-name { --nf: 1.25rem; font-weight: 700; font-size: var(--nf); line-height: 1.12; letter-spacing: -0.005em; text-wrap: balance; }
+.tile-wide .tile-name { --nf: 1.4375rem; }
+.tile .dir-text { font-weight: 500; font-size: 0.9688rem; line-height: 1.42; }
+.tile-links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin-block-start: auto; }
+.tile-links a {
+  display: inline-flex; align-items: center; min-block-size: 2.75rem; padding-inline: 0.375rem; margin-inline: -0.375rem;
+  border-radius: 0.25rem; font: 600 1.0938rem/1.2 var(--cond); font-stretch: condensed;
+  text-decoration-thickness: 2px; text-underline-offset: 0.25em;
+}
+.tile-links a:focus-visible { outline-offset: -3px; }
+/* A match: the tile's own pair inverted (the same contrast); in a name, a thick underline instead. */
+.tile mark { background: var(--ci); color: var(--c); padding-inline: 0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.tile-name mark { background: none; color: inherit; padding-inline: 0; text-decoration: underline; text-decoration-thickness: max(3px, 0.07em); text-underline-offset: 0.08em; }
+
+/* Pointer screens, rows: the tile shows its poster and name; hover or keyboard focus raises the panel with the
+   sentence and the links over the poster (the links are always in it, so focus opens it). Touch screens, the grids
+   and a page without the script show everything at once. */
+@media (hover: hover) and (pointer: fine) and (scripting: enabled) {
+  .catalog:not([data-view]) .tile { --cap: 4.5rem; block-size: calc(var(--tw) * var(--pr) + var(--cap)); }
+  .catalog:not([data-view]) .info {
+    position: absolute; inset-inline: 0; inset-block-start: calc(var(--tw) * var(--pr)); block-size: 100%; z-index: 2;
+    transition: transform 0.32s var(--ease);
+  }
+  .catalog:not([data-view]) .info :is(.dir-text, .tile-links) { opacity: 0; transition: opacity 0.2s linear; }
+  .catalog:not([data-view]) .tile:is(:hover, :focus-within) .info { transform: translateY(calc(var(--tw) * var(--pr) * -1)); }
+  .catalog:not([data-view]) .tile:is(:hover, :focus-within) .info :is(.dir-text, .tile-links) { opacity: 1; transition-delay: 0.08s; }
+  .catalog:not([data-view]) .tile-wide .dir-text { font-size: 1.0313rem; }
+}
+
+/* All at once: "Browse all" (every group as a grid), the finder (one grid of the matches) and no script. */
+.catalog[data-view] .shelf-rooms, .catalog[data-view] .shelf-nav,
+.catalog[data-view] .shelf-frame::before, .catalog[data-view] .shelf-frame::after { display: none; }
+.catalog[data-view="grid"] .row {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(15.5rem, 100%), 1fr)); overflow: visible;
+  scroll-snap-type: none; padding-block-end: 0.5rem;
+}
+.catalog[data-view] .tile { inline-size: auto; }
+.catalog[data-view="search"] {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(15.5rem, 100%), 1fr)); gap: var(--tgap);
+  padding: 1rem var(--gut) clamp(2rem, 5vw, 4rem); align-items: stretch; align-content: start;
+  min-block-size: 100svh;  /* few or no matches: the page stays long enough for the box to keep its place at the top */
+}
+.catalog[data-view="search"] :is(.group, .shelf-frame, .row, .lead, .lead > ul) { display: contents; }
+.catalog[data-view="search"] .shelf-head { display: none; }
+/* The closest match: a larger tile on the grid, two columns wide where there are two, poster beside its words. */
+@container catalog (min-width: 33rem) {
+  .catalog[data-view="search"] .lead .tile { grid-column: span 2; flex-direction: row; }
+  .catalog[data-view="search"] .lead .poster { inline-size: 50%; aspect-ratio: auto; }
+  /* Beside the words the poster is tall and narrow: a crop of the store art would cut its words, so an app with art
+     shows its icon there, lit like a drawn poster. */
+  .catalog[data-view="search"] .lead .poster-art {
+    display: grid; place-items: center;
+    background: radial-gradient(closest-side, var(--h), transparent 100%) center / 78% 118% no-repeat, var(--c2);
+  }
+  .catalog[data-view="search"] .lead .poster-art .art { display: none; }
+  .catalog[data-view="search"] .lead .poster-art .alt-icon { display: block; }
+  .catalog[data-view="search"] .lead .tile-name { font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.125rem); }
+  .catalog[data-view="search"] .lead .dir-text { font-size: 1.0625rem; }
+  .catalog[data-view="search"] .lead .info { padding: 1.25rem 1.5rem 0.875rem; gap: 0.75rem; }
+}
+@media (scripting: none) {
+  .ask { display: none; }
+  .catalog .shelf-rooms, .shelf-frame::before, .shelf-frame::after { display: none; }
+  .catalog .row {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(15.5rem, 100%), 1fr)); overflow: visible;
+    scroll-snap-type: none; padding-block-end: 0.5rem;
+  }
+  .catalog .tile { inline-size: auto; }
+}
+/* On a narrow screen the grids are compact: a small poster beside the words (store art shows its icon there, since
+   a narrow crop of the art would cut its words). */
+@media (max-width: 35.99rem) {
+  .catalog[data-view] .tile { flex-direction: row; }
+  .catalog[data-view] .poster { inline-size: 6rem; aspect-ratio: auto; display: grid; place-items: center; }
+  .catalog[data-view] .poster .art { display: none; }
+  .catalog[data-view] .poster .alt-icon { display: block; }
+  .catalog[data-view] :is(.poster-drawn .mark-icon, .poster .alt-icon) { inline-size: 3.5rem; block-size: 3.5rem; }
+}
+@media (max-width: 35.99rem) and (scripting: none) {
+  .catalog .tile { flex-direction: row; }
+  .catalog .poster { inline-size: 6rem; aspect-ratio: auto; display: grid; place-items: center; }
+  .catalog .poster .art { display: none; }
+  .catalog .poster .alt-icon { display: block; }
+  .catalog :is(.poster-drawn .mark-icon, .poster .alt-icon) { inline-size: 3.5rem; block-size: 3.5rem; }
+}
+
+/* Text enlarged on a narrow screen (the rule of the rooms' display headings, below): a tile's name is set no larger
+   than lets its longest word (--lw) fit the tile's words column, at 0.58 em per character, and never smaller than its
+   sentence; where the catalog is under 19 times the text size, a tile's words get a little more of its width and the
+   grids' compact tile puts its icon above its words. At the usual text size, from 320 px up, nothing changes. */
+.info { container-type: inline-size; }
+@container (max-width: 15em) {
+  .tile-name { font-size: max(0.9688rem, min(var(--nf), calc(100cqi / (var(--lw, 1) * 0.58)))); hyphens: auto; }
+}
+@container catalog (max-width: 19em) {
+  .info { padding-inline: 0.75rem; }
+  .catalog[data-view] .tile { flex-direction: column; }
+  .catalog[data-view] .poster { inline-size: auto; padding-block: 0.75rem; }
+  @media (scripting: none) {
+    .catalog .tile { flex-direction: column; }
+    .catalog .poster { inline-size: auto; padding-block: 0.75rem; }
+  }
+}
+
+/* About the studio (the page's own introduction first). */
+.studio { padding: clamp(1rem, 3vw, 2rem) var(--gut) clamp(2.5rem, 5vw, 4rem); }
+.studio::before { content: ""; display: block; border-block-start: 1px solid var(--seam); margin-block-end: 1.5rem; }
+.studio h2 { font-weight: 700; font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.25rem); line-height: 1.08; margin-block-end: 1.25rem; }
+.studio-text { display: grid; gap: 1rem 3rem; max-inline-size: 72rem; color: var(--soft); }
+.studio-text p { max-inline-size: 30em; }
+@media (min-width: 62rem) { .studio-text { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hub *, .hub *::before, .hub *::after { transition: none !important; animation: none !important; }
+}
+@media (forced-colors: active) {
+  .tile { border: 1px solid CanvasText; }
+  .shelf-frame::before, .shelf-frame::after { display: none; }
 }
 
 /* ---------------------------------------------------------------- frame pages: About and 404 */
@@ -468,14 +601,11 @@ body.room { background: var(--g); color: var(--i); }
    word does not fit even at that size, it breaks with a hyphen (hyphens: auto; the page language is set). A sibling
    card puts its icon above the text there, so the name has the card's full width. At the usual text size none of
    this applies, from 320 px up (measured). */
-.ask, .door, .bands .band, .sib-text, .siblings { container-type: inline-size; }
+.door, .sib-text, .siblings { container-type: inline-size; }
 @container (max-width: 15em) {
   .siblings a { grid-template-columns: minmax(0, 1fr); }
-  .question, .door h1, .bands .band-name, .sib-text strong { hyphens: auto; }
-  .question { font-size: max(1.0625rem, min(clamp(2.75rem, 0.6rem + 9.4vw, 9rem), calc((100cqi - 2 * var(--gut)) / (var(--lw, 1) * 0.58)))); }
+  .door h1, .sib-text strong { hyphens: auto; }
   .door h1 { font-size: max(clamp(1.125rem, 1rem + 0.45vw, 1.375rem), min(clamp(2.75rem, 0.6rem + 9vw, 9.25rem), calc(100cqi / (var(--lw, 1) * 0.58)))); }
-  .bands .band-name { font-size: max(1.125rem, min(clamp(1.5rem, 0.55rem + 3.4vw, 4.5rem), calc((100cqi - 3.625rem) / (var(--lw, 1) * 0.58)))); }
-  .lead .bands .band-name { font-size: max(clamp(1.125rem, 1rem + 0.5vw, 1.375rem), min(clamp(2.25rem, 1.2rem + 4.2vw, 5.5rem), calc((100cqi - 3.625rem) / (var(--lw, 1) * 0.58)))); }
   .sib-text strong { font-size: max(1.0625rem, min(clamp(1.5rem, 1rem + 1.2vw, 2.125rem), calc(100cqi / (var(--lw, 1) * 0.58)))); }
 }
 
@@ -488,4 +618,30 @@ body.room { background: var(--g); color: var(--i); }
 @media print {
   .bar, .foot, .cta, .skip, .toc, .shots-block, .question, .finder, .purposes, .status, .lead { display: none; }
   body, body.room, .band, .door { background: #FFFFFF; color: #000000; }
+  /* The home (design v4): white paper and black text; the billboard a plain block; every app once, in its group,
+     with its name, sentence and links (the group rows as grids; no art, controls or repeated row); no search. */
+  html:has(> body.hub) { background: #FFFFFF; color-scheme: light; }
+  body.hub { --paper: #FFFFFF; --ink: #000000; --quiet: #000000; --soft: #000000; --seam: #000000; background: #FFFFFF; color: #000000; }
+  .hub :is(.bb-art, .bb-icon, .ask, .shelf-rooms, .shelf-nav, .poster, #lead) { display: none; }
+  /* The printed home opens with the site's name: the page's own h1, shown on paper (on screen it is for screen readers). */
+  .hub #hub-h { position: static; inline-size: auto; block-size: auto; overflow: visible; clip-path: none; white-space: normal;
+    margin: 0 var(--gut) 1.25rem; padding: 0 0 0.75rem; border-block-end: 1px solid #000000; font-weight: 800; font-size: 1.75rem; line-height: 1.15; letter-spacing: -0.01em; color: #000000; }
+  .hub .billboard { display: block; min-block-size: 0; }
+  .hub .bb-text { inline-size: auto; max-inline-size: none; padding-block: 0 1rem; }
+  .hub .bb-btn { display: inline; min-block-size: 0; padding: 0; border: 0; background: none; color: #000000; text-decoration: underline; }
+  .hub .catalog .shelf-frame::before, .hub .catalog .shelf-frame::after { display: none; }
+  .hub .catalog .row {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr)); overflow: visible;
+    scroll-snap-type: none; padding-block-end: 0.5rem;
+  }
+  .hub .catalog .tile {
+    inline-size: auto; block-size: auto; flex-direction: column; background: #FFFFFF; color: #000000;
+    border: 1px solid #000000; break-inside: avoid;
+  }
+  .hub .catalog .tile::after { display: none; }
+  .hub .catalog .info { position: static; transform: none !important; block-size: auto; background: #FFFFFF; padding-inline: 0.75rem; }
+  .hub .catalog .info :is(.dir-text, .tile-links) { opacity: 1; }
+  .hub .catalog .tile mark { background: none; color: inherit; }
+  .hub .shelf { break-inside: auto; }
+  .hub .shelf-head { break-after: avoid; }
 }
