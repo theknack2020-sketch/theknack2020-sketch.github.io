@@ -1,157 +1,217 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Migora — a calm, private migraine tracker for iPhone and iPad. Log an attack in seconds, see how barometric pressure lines up with your history, and bring a clear report to your doctor. No account, on-device, health data never sold.">
-<title>Migora — Track Your Migraine Patterns</title>
-<style>
-  :root {
-    --bg: #FAF6FA; --fg: #241F29; --muted: #6F6577;
-    --accent: #9B2D6F; --rule: #C24C97; --card: #FFFFFF; --border: rgba(36, 31, 41, 0.12);
-    --hero-a: #FAF6FA; --hero-b: #EBCFE4; --hero-c: #C24C97;
-    --serif: "New York", Georgia, "Times New Roman", serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #141019; --fg: #F2ECF4; --muted: #A99FB2; --accent: #E183C0; --rule: #E183C0;
-      --card: #201A28; --border: rgba(242, 236, 244, 0.15);
-      --hero-a: #141019; --hero-b: #201A28; --hero-c: #46264A;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Migora: Migraine Tracker — a private migraine and headache diary for iPhone and iPad</title>
+<meta name="description" content="Migora: Migraine Tracker is a private migraine and headache diary for iPhone and iPad: you log an attack in a few taps on a true-black screen, and Migora records the air pressure around your attacks.">
+<link rel="canonical" href="https://theknackapps.com/migora/">
+<meta name="apple-itunes-app" content="app-id=6789600102">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1F1855" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1F1855" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TheKnack">
+<meta property="og:title" content="Migora: Migraine Tracker — a private migraine and headache diary for iPhone and iPad">
+<meta property="og:description" content="Migora: Migraine Tracker is a private migraine and headache diary for iPhone and iPad: you log an attack in a few taps on a true-black screen, and Migora records the air pressure around your attacks.">
+<meta property="og:url" content="https://theknackapps.com/migora/">
+<meta property="og:image" content="https://theknackapps.com/assets/icons/migora-512.jpg">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+<style>:root{--d:#1F1855;--di:#F9FAFE;--g:#F7F7FC;--g2:#E9EAF3;--i:#1C1C35;--i2:#434464;--a:#454482;--e:transparent}@media (prefers-color-scheme: dark){:root{--d:#1F1855;--di:#F9FAFE;--g:#14151F;--g2:#1F2030;--i:#F0F1FD;--i2:#C7C9DC;--a:#9B9EDF;--e:var(--edge)}}</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://theknackapps.com/#org",
+   "name": "TheKnack",
+   "url": "https://theknackapps.com/",
+   "sameAs": [
+    "https://apps.apple.com/developer/id1885204934"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "support@theknackapps.com"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://theknackapps.com/#website",
+   "url": "https://theknackapps.com/",
+   "name": "TheKnack",
+   "publisher": {
+    "@id": "https://theknackapps.com/#org"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://theknackapps.com/migora/",
+   "url": "https://theknackapps.com/migora/",
+   "name": "Migora: Migraine Tracker — a private migraine and headache diary for iPhone and iPad",
+   "description": "Migora: Migraine Tracker is a private migraine and headache diary for iPhone and iPad: you log an attack in a few taps on a true-black screen, and Migora records the air pressure around your attacks.",
+   "isPartOf": {
+    "@id": "https://theknackapps.com/#website"
+   },
+   "about": {
+    "@id": "https://theknackapps.com/migora/#app"
+   },
+   "primaryImageOfPage": "https://theknackapps.com/assets/icons/migora-512.jpg",
+   "dateModified": "2026-11-26",
+   "inLanguage": "en",
+   "breadcrumb": {
+    "@id": "https://theknackapps.com/migora/#breadcrumb"
+   }
+  },
+  {
+   "@type": "MobileApplication",
+   "@id": "https://theknackapps.com/migora/#app",
+   "name": "Migora: Migraine Tracker",
+   "alternateName": [
+    "Migora"
+   ],
+   "description": "Migora: Migraine Tracker is a private migraine and headache diary for iPhone and iPad: you log an attack in a few taps on a true-black screen, and Migora records the air pressure around your attacks.",
+   "applicationCategory": "HealthApplication",
+   "applicationSubCategory": "Migraine and headache diary",
+   "operatingSystem": "iOS 17.0 or later, iPadOS 17.0 or later, macOS 14.0 or later, visionOS 1.0 or later",
+   "softwareVersion": "2.0",
+   "inLanguage": "en",
+   "isAccessibleForFree": true,
+   "installUrl": "https://apps.apple.com/app/id6789600102",
+   "sameAs": [
+    "https://apps.apple.com/app/id6789600102"
+   ],
+   "url": "https://theknackapps.com/migora/",
+   "image": "https://theknackapps.com/assets/icons/migora-512.jpg",
+   "featureList": [
+    "Unlimited attack logging and Attack Mode",
+    "Your full history and calendar",
+    "Today’s pressure and the past 48 hours, with your attacks marked",
+    "Daily check-ins, triggers, medications and reminders",
+    "The widget, the Live Activity on iPhone, the Log Attack control and Siri",
+    "A one-page doctor summary of the last 30 days",
+    "The three-month days-affected check-in",
+    "This month’s acute-medication days",
+    "CSV export and App Lock",
+    "Migora Pro: The next 48 hours of pressure and the pressure band",
+    "Migora Pro: Pressure-drop alerts",
+    "Migora Pro: Insights: pressure and attacks, trigger overlap, medication ratings",
+    "Migora Pro: The days-affected trend",
+    "Migora Pro: The full doctor report, 30 days to 12 months, with a calendar heat map"
+   ],
+   "publisher": {
+    "@id": "https://theknackapps.com/#org"
+   },
+   "dateModified": "2026-11-24"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://theknackapps.com/migora/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "TheKnack",
+     "item": "https://theknackapps.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Migora",
+     "item": "https://theknackapps.com/migora/"
     }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://theknackapps.com/migora/#faq",
+   "isPartOf": {
+    "@id": "https://theknackapps.com/migora/"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is there a migraine diary app that shows the air pressure around attacks?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Migora marks your attacks on the pressure curve, from your device’s barometer and Apple Weather. Today’s pressure and the past 48 hours are included; the next 48 hours and the pressure band come with Migora Pro."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Migora alert me when the pressure drops?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, with Migora Pro, if you turn on Pressure-Drop Alerts and allow notifications and location. You get at most one alert a day, when Apple Weather’s forecast near you shows a fall of at least 3 hPa within 3 hours, and the alert says when the fall is expected. Since 2.0 your logged attacks no longer keep the alert quiet, and iOS decides when the background check runs, so the timing is not exact."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I log a migraine attack quickly, in the dark?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Attack Mode is true black with large targets and no typing: pain, where it hurts and aura, then Start Logging. Medication, symptoms, triggers and notes can wait for the recap."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I get a headache report for my doctor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. A one-page PDF of your last 30 days is included. Migora Pro adds the full report, up to 12 months, with a calendar heat map; it is a record of what you logged."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I see how many migraine days I had each month?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The calendar marks every day with a logged attack, month by month, but shows no total. The included one-page summary counts the attack days in the last 30 days, and Migora Pro’s full report counts them over 30 days to 12 months with a heat map for each month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I export my migraine log as CSV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, at any time and without Migora Pro: Settings, Export All Data as CSV. You get files for attacks, the pain timeline, medication doses, medications, check-ins and the three-month check-in, plus a README; pressure history is optional."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is my migraine log uploaded anywhere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Migora has no server and no account, and it never uploads your diary; only an approximate location goes to Apple Weather, if you allow it. There is no iCloud sync, but your own iCloud or computer backup of the device can include Migora’s data."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Migora a medical device?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Migora is a tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional."
+     }
+    }
+   ]
   }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg); color: var(--fg); line-height: 1.6;
-    margin: 0; padding: 0; -webkit-font-smoothing: antialiased;
-  }
-  .hero {
-    background: linear-gradient(135deg, var(--hero-a) 0%, var(--hero-b) 55%, var(--hero-c) 100%);
-    padding: 80px 24px 96px; text-align: center;
-  }
-  .mark { width: 96px; height: 96px; margin: 0 auto 24px; display: grid; place-items: center; }
-  .mark svg { width: 96px; height: 96px; }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: 2.75rem; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.02em;
-  }
-  .hero p.tagline {
-    font-family: var(--serif);
-    font-size: 1.2rem; font-style: italic; color: var(--fg); opacity: 0.85; margin: 0 0 8px;
-    max-width: 540px; margin-left: auto; margin-right: auto;
-  }
-  .hero p.sub {
-    font-size: 1.05rem; color: var(--muted); margin: 0 0 32px;
-    max-width: 520px; margin-left: auto; margin-right: auto;
-  }
-  .cta {
-    display: inline-block; background: var(--rule); color: #FFFFFF;
-    padding: 14px 28px; border-radius: 999px; font-weight: 600;
-    text-decoration: none; font-size: 1rem;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 48px; }
-  h2 {
-    font-family: var(--serif);
-    font-size: 1.5rem; font-weight: 700; margin: 40px 0 12px;
-    padding-bottom: 8px; border-bottom: 3px solid var(--rule); display: inline-block;
-  }
-  .feature-grid {
-    display: grid; gap: 16px; margin-top: 24px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-  .feature {
-    background: var(--card); border: 1px solid var(--border);
-    padding: 20px; border-radius: 16px;
-  }
-  .feature h3 { margin: 0 0 8px; font-size: 1.05rem; }
-  .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-  .disclaimer {
-    background: var(--card); border: 1px solid var(--border);
-    border-left: 3px solid var(--accent); padding: 14px 16px;
-    border-radius: 8px; margin: 32px 0 0; color: var(--muted); font-size: 0.95rem;
-  }
-  .nav-links {
-    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-    margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);
-  }
-  .nav-links a { color: var(--fg); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-  .nav-links a:hover { color: var(--accent); }
-  footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 32px 24px 48px; }
-</style>
+ ]
+}
+</script>
 </head>
-<body>
-<div class="hero">
-  <div class="mark" aria-hidden="true">
-    <!-- Violet disc + barometric arc + steady point mark -->
-    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#D98FC7"/>
-          <stop offset="50%" stop-color="#C24C97"/>
-          <stop offset="100%" stop-color="#8A2C6B"/>
-        </linearGradient>
-      </defs>
-      <circle cx="48" cy="48" r="44" fill="url(#violet)"/>
-      <!-- barometric curve: a falling-then-steadying line, drawn in soft cream -->
-      <g fill="none" stroke="#FAF6FA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 40 C32 40, 36 62, 50 62 C62 62, 66 48, 76 48"/>
-      </g>
-      <circle cx="76" cy="48" r="5" fill="#FAF6FA"/>
-    </svg>
-  </div>
-  <h1>Migora</h1>
-  <p class="tagline">Understand your migraines, one honest log at a time.</p>
-  <p class="sub">A calm, private migraine tracker for iPhone and iPad. Log an attack in seconds, see how the pressure lines up with your history, and bring a clear report to your doctor.</p>
-  <a class="cta" href="https://apps.apple.com/app/id6789600102" rel="noopener">Get Migora on the App Store</a>
-</div>
-
-<main id="about">
-  <h2>What it is</h2>
-  <p>Migora is a migraine journal built around three moments: the seconds when an attack starts, the days when you want to understand why, and the appointment where you finally have the full picture. Log an attack in a few taps with Attack Mode — true black, large targets, zero typing. Watch how your recorded attacks line up with local barometric pressure. Track sleep, triggers, medications, and daily check-ins. And when you see your clinician, generate a clean report from everything you've logged. No account, everything on your device, and your health data is yours alone.</p>
-
-  <h2>Features</h2>
-  <div class="feature-grid">
-    <div class="feature">
-      <h3>Attack Mode</h3>
-      <p>Log an attack in a few taps — true black, large targets, no typing, easy on light-sensitive eyes.</p>
-    </div>
-    <div class="feature">
-      <h3>Pressure &amp; patterns</h3>
-      <p>See how your attacks line up with local barometric pressure and your own triggers.</p>
-    </div>
-    <div class="feature">
-      <h3>Daily check-ins</h3>
-      <p>A ten-second note on sleep, stress, hydration, mood and cycle phase — the context behind the pattern.</p>
-    </div>
-    <div class="feature">
-      <h3>Doctor report</h3>
-      <p>A clear PDF of your own log to show your doctor — heat map, frequency, durations and medication days.</p>
-    </div>
-    <div class="feature">
-      <h3>Private by design</h3>
-      <p>No account, no tracking, no ads. Your health data stays on your device.</p>
-    </div>
-    <div class="feature">
-      <h3>Apple-native</h3>
-      <p>A widget, a Live Activity for a running attack, Siri, dark mode, App Lock and gentle, optional reminders.</p>
-    </div>
-  </div>
-
-  <div class="disclaimer">
-    Migora is a tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional.
-  </div>
-
-  <h2>Made by TheKnack</h2>
-  <p>Migora is crafted by TheKnack, a small indie studio building calm, private Apple apps.</p>
-
-  <nav class="nav-links" aria-label="Legal">
-    <a href="./privacy-policy.html">Privacy Policy</a>
-    <a href="./terms-of-use.html">Terms of Use</a>
-    <a href="./support.html">Support</a>
-  </nav>
+<body class="room full">
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><a class="wordmark" href="/" aria-label="TheKnack, home">The<span>Knack</span></a><nav aria-label="Site"><ul><li><a href="/#apps">Apps</a></li><li><a href="/about/">About</a></li></ul></nav></header>
+<main id="main">
+<header class="door"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">TheKnack</a></li><li><a href="/#apps">Apps</a></li><li aria-current="page">Migora</li></ol></nav><img class="app-icon" src="/assets/icons/migora-192.png" width="112" height="112" alt="Migora app icon"><h1 style="--lw:8">Migora: Migraine Tracker</h1><p class="app-meta"><span>Version 2.0</span> <span>from <a href="/about/">TheKnack</a></span></p><p class="lede">Migora: Migraine Tracker is a private migraine and headache diary for iPhone and iPad: you log an attack in a few taps on a true-black screen, and Migora records the air pressure around your attacks. There is no account, no ads and no Migora server, and Migora never uploads your diary. Migora is a tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment.</p><p class="cta"><a class="btn" href="https://apps.apple.com/app/id6789600102"><span>View Migora in the App Store</span></a></p></header><section class="shots-block" aria-labelledby="shots"><div class="shots-head"><h2 id="shots">Screenshots</h2></div><div class="shots" role="region" aria-label="Screenshots of Migora, scroll sideways" data-prev="Previous screenshots" data-next="Next screenshots"><ul class="shots-track"><li class="shot"><img src="/assets/screens/migora/01-600.webp" srcset="/assets/screens/migora/01-300.webp 300w, /assets/screens/migora/01-600.webp 600w" sizes="(max-width: 640px) 62vw, 264px" width="300" height="652" alt="Migora on iPhone, App Store screenshot 1 of 4"></li><li class="shot"><img src="/assets/screens/migora/02-600.webp" srcset="/assets/screens/migora/02-300.webp 300w, /assets/screens/migora/02-600.webp 600w" sizes="(max-width: 640px) 62vw, 264px" width="300" height="652" alt="Migora on iPhone, App Store screenshot 2 of 4"></li><li class="shot"><img src="/assets/screens/migora/04-600.webp" srcset="/assets/screens/migora/04-300.webp 300w, /assets/screens/migora/04-600.webp 600w" sizes="(max-width: 640px) 62vw, 264px" width="300" height="652" alt="Migora on iPhone, App Store screenshot 3 of 4"></li><li class="shot"><img src="/assets/screens/migora/05-600.webp" srcset="/assets/screens/migora/05-300.webp 300w, /assets/screens/migora/05-600.webp 600w" sizes="(max-width: 640px) 62vw, 264px" width="300" height="652" alt="Migora on iPhone, App Store screenshot 4 of 4" loading="lazy" decoding="async"></li></ul></div></section><div class="room-body"><nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">On this page</h2><ul><li><a href="#facts">Key facts</a></li><li><a href="#for">Who it is for</a></li><li><a href="#does">What it does</a></li><li><a href="#included">Included, and what Migora Pro adds</a></li><li><a href="#how">How it works</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#faq">Questions</a></li><li><a href="#new">What’s new</a></li><li><a href="#support">Support</a></li><li><a href="#more">More from TheKnack</a></li></ul></nav><div class="room-main"><section class="sect" aria-labelledby="facts"><h2 id="facts">Key facts</h2><table class="facts"><caption class="vh">Migora: Migraine Tracker, version 2.0</caption><tbody><tr><th scope="row">Made for</th><td>iPhone and iPad; the App Store also offers the iPad version on Mac (marked “Designed for iPad. Not verified for macOS.”) and on Apple Vision</td></tr><tr><th scope="row">Requires</th><td>iOS 17.0 or later; iPadOS 17.0 or later on iPad; macOS 14.0 or later on a Mac with an Apple M1 chip or later; visionOS 1.0 or later on Apple Vision</td></tr><tr><th scope="row">App Store category</th><td>Health &amp; Fitness (also listed under Medical)</td></tr><tr><th scope="row">Price</th><td>Free to download. Everything listed under Included works without Migora Pro. Migora Pro is optional; its purchase options and the price in your currency are shown in the app and on the App Store before you confirm.</td></tr><tr><th scope="row">Data collected</th><td>None declared: Migora’s privacy manifests list no collected data and no tracking.</td></tr><tr><th scope="row">Account, ads</th><td>No account and no ads.</td></tr><tr><th scope="row">Location</th><td>Optional. An approximate location goes to Apple Weather, never to the developer; the next 48 hours of pressure and pressure-drop alerts need it.</td></tr><tr><th scope="row">Language</th><td>English</td></tr><tr><th scope="row">Current version</th><td>2.0, released November 24, 2026</td></tr><tr><th scope="row">Made by</th><td>TheKnack</td></tr><tr><th scope="row">App Store</th><td><a href="https://apps.apple.com/app/id6789600102">Migora: Migraine Tracker</a> (ID 6789600102)</td></tr></tbody></table></section><section class="sect" aria-labelledby="for"><h2 id="for">Who it is for</h2><div class="pair"><div class="pair-col"><ul class="ticks"><li>People with migraine or frequent headaches who want to log an attack fast, in a dark room, with no typing.</li><li>People who want to see the air pressure around their attacks, from their own device and Apple Weather.</li><li>People who want a record for an appointment: a one-page summary of the last 30 days is included, and the full doctor report comes with Migora Pro.</li><li>People who want a diary with no account and no server.</li></ul></div><div class="pair-col limits"><h3>What it is not</h3><ul class="dashes"><li>Migora is a tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional.</li><li>It does not predict migraines: it describes the pressure and your own log.</li><li>It is not a synced diary: there is no iCloud sync and no account, so the log stays on the device where you made it.</li><li>It does not connect to Apple Health.</li></ul></div></div></section><section class="sect" aria-labelledby="does"><h2 id="does">What it does</h2><div class="does-grid"><div class="does-group"><h3>Attack Mode</h3><ul class="ticks"><li>Attack Mode opens on a true-black screen with large targets and no typing: pick the pain from 1 to 10, tap where it hurts, mark aura, and tap Start Logging.</li><li>While Attack Mode is open, the screen is dimmed to 20%; a switch in Settings turns this off.</li><li>During the attack you can update the pain, tap “I took medication” for a dose, and end it with “Feeling Better”.</li><li>Afterward, the recap adds symptoms, suspected triggers, what you tried, doses with “Add a Dose” and whether each one helped, and a note.</li><li>On iPhone, a running attack shows as a Live Activity on the Lock Screen, with “I Took Medication” and “Feeling Better” buttons.</li><li>Saying “Log a migraine in Migora” to Siri records the start of an attack without opening the app, and on iOS 18 or later a Log Attack control opens Attack Mode.</li></ul></div><div class="does-group"><h3>Pressure</h3><ul class="ticks"><li>Migora reads the barometer in your iPhone or iPad, when it has one, while the app is open, and adds hourly pressure from Apple Weather for your approximate area.</li><li>Today’s pressure and the past 48 hours, with your attacks marked on the curve, are included.</li><li>With Migora Pro, the chart adds the next 48 hours from Apple Weather, and a pressure band (Steady, Shifting or Rapid swings) describes the last 6 hours and the next 24.</li><li>Pressure reads in hPa, inHg or mmHg, set for your region unless you choose one in Settings.</li><li>A widget for the Home Screen and the Lock Screen shows the current pressure; the band is part of Migora Pro.</li><li>Siri answers “How’s the pressure today in Migora” with the pressure and which way it is moving; with Migora Pro it adds the band.</li></ul></div><div class="does-group"><h3>Diary and history</h3><ul class="ticks"><li>Attack logging is unlimited, and your full history and calendar are never locked.</li><li>You can add an earlier attack, correct its time, pain or aura later, and undo a deletion.</li><li>A daily check-in notes sleep quality, stress, hydration, mood and cycle phase, with an optional reminder that skips days you have already checked in.</li><li>Your triggers start from a ready-made list that you can rename, merge or delete.</li><li>Your medications are your own list: Migora never suggests medications or doses, and a medication you stop keeps its past doses.</li></ul></div><div class="does-group"><h3>For your doctor</h3><ul class="ticks"><li>Included: a one-page PDF of your last 30 days with attack days, attacks, peak pain range, acute-medication days and your latest days-affected count.</li><li>With Migora Pro: the full report for the last 30, 90, 180 or 365 days, with a calendar heat map, attack durations, acute-medication days by month, your most-tagged triggers and your days-affected trend.</li><li>Both can carry your name, kept only on this device, and open in Share or Print.</li><li>Every few months, a three-month check-in counts the days migraines stopped you or slowed you to half pace, and adds the headache days from your log; the trend comes with Migora Pro.</li></ul></div><div class="does-group"><h3>Insights</h3><ul class="ticks"><li>With Migora Pro, Insights lays your attacks over 30 or 90 days of pressure and shows how often each trigger was tagged and how your medications rated by your own marks.</li><li>Everyone sees this month’s acute-medication days.</li></ul></div></div></section><section class="sect" aria-labelledby="included"><h2 id="included">Included, and what Migora Pro adds</h2><table class="split"><thead><tr><th scope="col">Included with the download</th><th scope="col">Added by Migora Pro</th></tr></thead><tbody><tr><td data-label="Included with the download"><ul class="ticks"><li>Unlimited attack logging and Attack Mode</li><li>Your full history and calendar</li><li>Today’s pressure and the past 48 hours, with your attacks marked</li><li>Daily check-ins, triggers, medications and reminders</li><li>The widget, the Live Activity on iPhone, the Log Attack control and Siri</li><li>A one-page doctor summary of the last 30 days</li><li>The three-month days-affected check-in</li><li>This month’s acute-medication days</li><li>CSV export and App Lock</li></ul></td><td data-label="Added by Migora Pro"><ul class="ticks"><li>The next 48 hours of pressure and the pressure band</li><li>Pressure-drop alerts</li><li>Insights: pressure and attacks, trigger overlap, medication ratings</li><li>The days-affected trend</li><li>The full doctor report, 30 days to 12 months, with a calendar heat map</li></ul></td></tr></tbody></table><p class="note">Your own log is never locked: logging, Attack Mode, your history and calendar, check-ins and CSV export stay included without Migora Pro. Free to download. Everything listed under Included works without Migora Pro. Migora Pro is optional; its purchase options and the price in your currency are shown in the app and on the App Store before you confirm.</p></section><section class="sect" aria-labelledby="how"><h2 id="how">How it works</h2><ul class="ticks"><li>Two pressure sources: the barometer in your device, read only while Migora is open, and Apple Weather’s hourly pressure for your approximate area, the past 24 hours and the next 48 at each refresh.</li><li>Barometer readings are split at every fast change in height, such as an elevator ride, and a drop is only looked for inside one consistent series, so moving up or down is not read as weather.</li><li>A rapid drop is a fall of at least 3 hPa within 3 hours: a fixed threshold, not a personal one.</li><li>An attack counts on every calendar day it touched; an attack Migora closed after 72 hours counts on its first day only until you set or keep its end.</li><li>Average durations leave out attacks whose end Migora estimated.</li></ul></section><section class="sect" aria-labelledby="privacy"><h2 id="privacy">Privacy</h2><p class="statement">No account, no ads, no analytics and no Migora server: the app has no networking code of its own. Only if you allow location, a reduced-accuracy location goes to Apple Weather; Migora keeps it on the device with your readings, rounded to a tenth of a degree. There is no iCloud sync; Migora does not exclude its data from the device backups you make yourself. App Lock asks for Face ID, Touch ID or your passcode, and Delete All Data erases the log with no copy kept.</p></section><section class="sect" id="faq" aria-labelledby="faq-h"><h2 id="faq-h">Questions</h2><div class="faq-item"><h3 class="q">Is there a migraine diary app that shows the air pressure around attacks?</h3><p class="a">Yes. Migora marks your attacks on the pressure curve, from your device’s barometer and Apple Weather. Today’s pressure and the past 48 hours are included; the next 48 hours and the pressure band come with Migora Pro.</p></div><div class="faq-item"><h3 class="q">Does Migora alert me when the pressure drops?</h3><p class="a">Yes, with Migora Pro, if you turn on Pressure-Drop Alerts and allow notifications and location. You get at most one alert a day, when Apple Weather’s forecast near you shows a fall of at least 3 hPa within 3 hours, and the alert says when the fall is expected. Since 2.0 your logged attacks no longer keep the alert quiet, and iOS decides when the background check runs, so the timing is not exact.</p></div><div class="faq-item"><h3 class="q">Can I log a migraine attack quickly, in the dark?</h3><p class="a">Yes. Attack Mode is true black with large targets and no typing: pain, where it hurts and aura, then Start Logging. Medication, symptoms, triggers and notes can wait for the recap.</p></div><div class="faq-item"><h3 class="q">Can I get a headache report for my doctor?</h3><p class="a">Yes. A one-page PDF of your last 30 days is included. Migora Pro adds the full report, up to 12 months, with a calendar heat map; it is a record of what you logged.</p></div><div class="faq-item"><h3 class="q">Can I see how many migraine days I had each month?</h3><p class="a">The calendar marks every day with a logged attack, month by month, but shows no total. The included one-page summary counts the attack days in the last 30 days, and Migora Pro’s full report counts them over 30 days to 12 months with a heat map for each month.</p></div><div class="faq-item"><h3 class="q">Can I export my migraine log as CSV?</h3><p class="a">Yes, at any time and without Migora Pro: Settings, Export All Data as CSV. You get files for attacks, the pain timeline, medication doses, medications, check-ins and the three-month check-in, plus a README; pressure history is optional.</p></div><div class="faq-item"><h3 class="q">Is my migraine log uploaded anywhere?</h3><p class="a">No. Migora has no server and no account, and it never uploads your diary; only an approximate location goes to Apple Weather, if you allow it. There is no iCloud sync, but your own iCloud or computer backup of the device can include Migora’s data.</p></div><div class="faq-item"><h3 class="q">Is Migora a medical device?</h3><p class="a">No. Migora is a tracking tool, not a medical device. It does not provide medical advice, diagnosis, or treatment. Always consult a healthcare professional.</p></div></section><section class="sect" aria-labelledby="new"><h2 id="new">What’s new</h2><ul class="versions"><li><span class="ver">2.0</span><span class="when">November 24, 2026</span><span class="what">Add an earlier attack, correct the time, pain or aura of any attack, and undo a deletion. Attack Mode dims the screen while it is open, and the recap can add a dose with “Add a Dose”. A one-page doctor summary of the last 30 days is included, and the full report covers 30, 90, 180 or 365 days and can carry your name. A three-month days-affected check-in for everyone, with the headache days filled in from your log. Pressure in hPa, inHg or mmHg; barometer readings are no longer mixed with weather values into false drops. Pressure-drop alerts now say when the fall is expected, and your logged attacks no longer keep them quiet. An attack that runs past midnight counts on every day it touched. A ready-made trigger list to rename, merge or delete, and stopped medications keep their past doses. The CSV export now also holds the pain timeline, the medication list and the three-month check-in, with pressure history as an option. On iOS 18 or later, a Log Attack control opens Attack Mode in one tap. A new app icon.</span></li></ul></section><section class="sect" aria-labelledby="support"><h2 id="support">Support</h2><p>Questions about Migora: <a href="mailto:support@theknackapps.com">support@theknackapps.com</a></p><ul class="links"><li><a href="/migora/support.html">Support</a></li><li><a href="/migora/privacy-policy.html">Privacy Policy</a></li><li><a href="/migora/terms-of-use.html">Terms of Use</a></li></ul></section><section class="sect" aria-labelledby="more"><h2 id="more">More from TheKnack</h2><ul class="siblings"><li class="band" style="--bl:#3346C0;--il:#F8FAFF;--bd:#3346C0;--id:#F8FAFF"><a href="https://apps.apple.com/app/id6789722462"><img class="sib-icon" src="/assets/icons/pressora-128.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="sib-text"><strong style="--lw:10">Pressora: Barometric Pressure</strong><span>Reads the air pressure with your iPhone’s own sensor and lines it up with a 48-hour pressure forecast.</span></span></a></li></ul><p class="back"><a href="/#apps">All apps</a></p></section></div></div>
 </main>
-
-<footer>© 2026 TheKnack</footer>
+<footer class="foot" aria-label="Footer"><p class="foot-line"><a class="wordmark" href="/" aria-label="TheKnack, home">The<span>Knack</span></a> <span>makes apps for iPhone and iPad.</span></p><ul class="foot-links"><li><a href="/">All apps</a></li><li><a href="/about/">About</a></li><li><a href="https://apps.apple.com/developer/id1885204934">App Store developer page</a></li><li><a href="mailto:support@theknackapps.com">support@theknackapps.com</a></li></ul></footer>
 </body>
 </html>
